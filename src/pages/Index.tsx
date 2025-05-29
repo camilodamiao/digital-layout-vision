@@ -1,17 +1,22 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, User, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
 const Index = () => {
   const [hoveredCard, setHoveredCard] = useState<'b2b' | 'b2c' | null>(null);
   const navigate = useNavigate();
+
   const handleNavigate = (path: string) => {
     navigate(path);
   };
-  return <div className="min-h-screen relative overflow-hidden" style={{
-    backgroundColor: '#102A3F'
-  }}>
+
+  return (
+    <div className="min-h-screen relative overflow-hidden" style={{
+      backgroundColor: '#102A3F'
+    }}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 rounded-full blur-3xl" style={{
@@ -164,6 +169,19 @@ const Index = () => {
           </p>
         </div>
       </div>
-    </div>;
+
+      {/* Footer */}
+      <footer className="relative z-10 bg-gray-900 bg-opacity-90 mt-auto">
+        <div className="container mx-auto px-6 py-8">
+          <div className="text-center">
+            <p className="text-gray-400">
+              © 2024 Educa Nextest. Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
 };
+
 export default Index;
