@@ -1,11 +1,12 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, MessageSquare, Users, Target, Award, BarChart3, Shield, Clock, CheckCircle, Play, BookOpen, Headphones, Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from "lucide-react";
+import { ArrowLeft, MessageSquare, Users, Target, Award, BarChart3, Shield, Clock, CheckCircle, Play, BookOpen, Headphones, Mail, Phone, MapPin, Linkedin, Instagram, Youtube, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const B2BPage = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const whatsappNumber = "5511999999999"; // Substitua pelo número real
   const whatsappMessage = "Olá! Gostaria de saber mais sobre os treinamentos corporativos da Educa Nextest.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -13,6 +14,23 @@ const B2BPage = () => {
   const handleWhatsAppClick = () => {
     window.open(whatsappUrl, '_blank');
   };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const menuItems = [
+    { label: "Início", action: () => scrollToSection("hero") },
+    { label: "Benefícios", action: () => scrollToSection("benefits") },
+    { label: "Equipe", action: () => scrollToSection("team") },
+    { label: "Serviços", action: () => scrollToSection("services") },
+    { label: "Recursos", action: () => scrollToSection("resources") },
+    { label: "Depoimentos", action: () => scrollToSection("testimonials") },
+  ];
 
   const teamMembers = [
     { name: "Camila Carvalho", role: "Gerente de Contas" },
@@ -92,8 +110,8 @@ const B2BPage = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#102A3F' }}>
-      {/* Header */}
-      <header className="relative z-10 py-4 md:py-6 px-4 md:px-6">
+      {/* Header with Floating Menu */}
+      <header className="relative z-50 py-4 md:py-6 px-4 md:px-6">
         <div className="container mx-auto flex items-center justify-between">
           <Button 
             variant="ghost" 
@@ -103,13 +121,72 @@ const B2BPage = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Voltar
           </Button>
+          
           <img 
             src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" 
             alt="Educa Nextest" 
             className="h-8 md:h-12" 
           />
-          <div className="w-16 md:w-20"></div>
+
+          {/* Desktop Menu */}
+          <nav className="hidden lg:flex items-center space-x-6">
+            {menuItems.map((item, index) => (
+              <button
+                key={index}
+                onClick={item.action}
+                className="text-white hover:text-opacity-80 transition-colors text-sm font-medium"
+              >
+                {item.label}
+              </button>
+            ))}
+            <Button
+              onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')}
+              className="text-white font-semibold px-4 py-2 text-sm"
+              style={{ backgroundColor: '#60AB4B' }}
+            >
+              Login
+            </Button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden text-white hover:bg-white hover:bg-opacity-10"
+          >
+            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </Button>
         </div>
+
+        {/* Mobile Floating Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden absolute top-full left-4 right-4 mt-2 bg-gray-800 bg-opacity-95 backdrop-blur-sm rounded-lg border border-gray-700 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+            <nav className="p-4 space-y-3">
+              {menuItems.map((item, index) => (
+                <button
+                  key={index}
+                  onClick={item.action}
+                  className="block w-full text-left text-white hover:text-opacity-80 transition-colors py-2 px-3 rounded hover:bg-white hover:bg-opacity-10"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <div className="pt-2 border-t border-gray-600">
+                <Button
+                  onClick={() => {
+                    window.open('https://cursos.educanextest.com.br/', '_blank');
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full text-white font-semibold"
+                  style={{ backgroundColor: '#60AB4B' }}
+                >
+                  Login
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* CTA Flutuante */}
@@ -127,7 +204,7 @@ const B2BPage = () => {
 
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         {/* Hero Section */}
-        <div className="py-10 md:py-20">
+        <div id="hero" className="py-10 md:py-20">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
@@ -180,7 +257,7 @@ const B2BPage = () => {
         </div>
 
         {/* Benefícios e Diferenciais */}
-        <div className="py-10 md:py-20">
+        <div id="benefits" className="py-10 md:py-20">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-16">
             Por que escolher a Educa Nextest?
           </h2>
@@ -200,7 +277,7 @@ const B2BPage = () => {
         </div>
 
         {/* Equipe */}
-        <div className="py-10 md:py-20">
+        <div id="team" className="py-10 md:py-20">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-6 md:mb-8">
             Quem está por trás da EDUCA NEXTEST
           </h2>
@@ -224,7 +301,7 @@ const B2BPage = () => {
         </div>
 
         {/* Como podemos te ajudar */}
-        <div className="py-10 md:py-20 -mx-4 md:-mx-6 px-4 md:px-6 bg-gray-800 bg-opacity-30 rounded-lg">
+        <div id="services" className="py-10 md:py-20 -mx-4 md:-mx-6 px-4 md:px-6 bg-gray-800 bg-opacity-30 rounded-lg">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:mb-8">
               Como podemos te ajudar?
@@ -249,7 +326,7 @@ const B2BPage = () => {
         </div>
 
         {/* Recursos da Plataforma */}
-        <div className="py-10 md:py-20">
+        <div id="resources" className="py-10 md:py-20">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-12">
             Recursos
           </h2>
@@ -273,7 +350,7 @@ const B2BPage = () => {
         </div>
 
         {/* Depoimentos */}
-        <div className="py-10 md:py-20">
+        <div id="testimonials" className="py-10 md:py-20">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-12">
             O que nossos clientes dizem
           </h2>
