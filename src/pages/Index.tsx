@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,9 +28,9 @@ const Index = () => {
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center mb-6">
             <img 
-              src="/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png" 
+              src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" 
               alt="Educa Nextest" 
-              className="h-12 mr-3"
+              className="h-16 mr-4"
             />
             <h1 className="text-3xl font-bold text-white">Educa Nextest</h1>
           </div>
