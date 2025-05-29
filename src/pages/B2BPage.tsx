@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -145,30 +146,32 @@ const B2BPage = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#102A3F' }}>
-      {/* Fixed Floating Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-95 backdrop-blur-sm shadow-lg">
-        <div className="container mx-auto px-4 md:px-6 py-3">
+      {/* Static Header */}
+      <header className="bg-white shadow-lg">
+        <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
               <img 
                 src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" 
                 alt="Educa Nextest" 
-                className="h-8 md:h-10" 
+                className="h-10 md:h-12" 
               />
             </div>
 
-            {/* Desktop Navigation Menu */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              {menuItems.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={item.action}
-                  className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
-                >
-                  {item.label}
-                </button>
-              ))}
+            {/* Desktop Navigation Menu - Centered */}
+            <nav className="hidden lg:flex items-center justify-center flex-1">
+              <div className="flex items-center space-x-8">
+                {menuItems.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={item.action}
+                    className="text-gray-700 hover:text-gray-900 transition-colors text-base font-medium px-4 py-2 rounded-lg hover:bg-gray-50"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </nav>
 
             {/* Right Side Actions */}
@@ -177,16 +180,16 @@ const B2BPage = () => {
               <Button 
                 variant="ghost" 
                 onClick={() => navigate('/')} 
-                className="hidden md:flex text-gray-700 hover:bg-gray-100 text-sm"
+                className="hidden md:flex text-gray-700 hover:bg-gray-100 text-base"
               >
-                <ArrowLeft className="w-4 h-4 mr-2" />
+                <ArrowLeft className="w-5 h-5 mr-2" />
                 Voltar
               </Button>
 
               {/* Login Button */}
               <Button
                 onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')}
-                className="text-white font-semibold px-4 py-2 text-sm rounded-full"
+                className="text-white font-semibold px-6 py-3 text-base rounded-lg hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: '#60AB4B' }}
               >
                 Fazer login →
@@ -199,12 +202,12 @@ const B2BPage = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden text-gray-700 hover:bg-gray-100"
               >
-                {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </Button>
             </div>
           </div>
 
-          {/* Mobile Floating Menu */}
+          {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="lg:hidden mt-4 bg-white rounded-lg border border-gray-200 shadow-xl animate-in slide-in-from-top-2 duration-200">
               <nav className="p-4 space-y-3">
@@ -212,21 +215,21 @@ const B2BPage = () => {
                   <button
                     key={index}
                     onClick={item.action}
-                    className="block w-full text-left text-gray-700 hover:text-gray-900 transition-colors py-2 px-3 rounded hover:bg-gray-50"
+                    className="block w-full text-left text-gray-700 hover:text-gray-900 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 text-base"
                   >
                     {item.label}
                   </button>
                 ))}
-                <div className="pt-2 border-t border-gray-200">
+                <div className="pt-3 border-t border-gray-200">
                   <Button 
                     variant="ghost" 
                     onClick={() => {
                       navigate('/');
                       setIsMenuOpen(false);
                     }} 
-                    className="w-full text-gray-700 hover:bg-gray-50 justify-start"
+                    className="w-full text-gray-700 hover:bg-gray-50 justify-start py-3"
                   >
-                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    <ArrowLeft className="w-5 h-5 mr-2" />
                     Voltar
                   </Button>
                 </div>
@@ -249,8 +252,8 @@ const B2BPage = () => {
         </Button>
       </div>
 
-      {/* Add top padding to account for fixed header */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 pt-20">
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
         {/* Hero Section */}
         <div id="hero" className="py-10 md:py-20">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
