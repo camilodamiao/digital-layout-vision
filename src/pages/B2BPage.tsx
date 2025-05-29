@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Users, Target, Award, BarChart3, Shield, Clock, CheckCircle, Play, BookOpen, Headphones, Mail, Phone, MapPin, Linkedin, Instagram, Youtube, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -33,15 +34,51 @@ const B2BPage = () => {
   ];
 
   const teamMembers = [
-    { name: "Camila Carvalho", role: "Gerente de Contas" },
-    { name: "Murilo Rosa", role: "Especialista Técnico" },
-    { name: "Thiago Cardoso", role: "Coordenador" },
-    { name: "Alexandre Nascimento", role: "Instrutor Sênior" },
-    { name: "Rodrigo Santos", role: "Consultor Técnico" },
-    { name: "Ayrton Pereira", role: "Especialista em Fibra" },
-    { name: "Danilo Pereira", role: "Instrutor" },
-    { name: "Judiel Martins", role: "Consultor" },
-    { name: "Alexandre Gomes Azi", role: "Diretor Técnico" }
+    { 
+      name: "Camila Carvalho", 
+      role: "Gerente de Contas",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+    },
+    { 
+      name: "Murilo Rosa", 
+      role: "Especialista Técnico",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=400&fit=crop&crop=face"
+    },
+    { 
+      name: "Thiago Cardoso", 
+      role: "Coordenador",
+      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=400&fit=crop&crop=face"
+    },
+    { 
+      name: "Alexandre Nascimento", 
+      role: "Instrutor Sênior",
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=400&fit=crop&crop=face"
+    },
+    { 
+      name: "Rodrigo Santos", 
+      role: "Consultor Técnico",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+    },
+    { 
+      name: "Ayrton Pereira", 
+      role: "Especialista em Fibra",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=400&fit=crop&crop=face"
+    },
+    { 
+      name: "Danilo Pereira", 
+      role: "Instrutor",
+      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=400&fit=crop&crop=face"
+    },
+    { 
+      name: "Judiel Martins", 
+      role: "Consultor",
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=400&fit=crop&crop=face"
+    },
+    { 
+      name: "Alexandre Gomes Azi", 
+      role: "Diretor Técnico",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+    }
   ];
 
   const services = [
@@ -289,9 +326,12 @@ const B2BPage = () => {
             {teamMembers.map((member, index) => (
               <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
                 <CardContent className="p-3 md:p-6 text-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-lg" style={{ backgroundColor: '#60AB4B' }}>
-                    {member.name.charAt(0)}
-                  </div>
+                  <Avatar className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4">
+                    <AvatarImage src={member.image} alt={member.name} className="object-cover" />
+                    <AvatarFallback className="text-white font-bold text-sm md:text-lg" style={{ backgroundColor: '#60AB4B' }}>
+                      {member.name.charAt(0)}
+                    </AvatarFallback>
+                  </Avatar>
                   <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-2">{member.name}</h3>
                   <p className="text-gray-300 text-xs md:text-sm">{member.role}</p>
                 </CardContent>
@@ -301,7 +341,7 @@ const B2BPage = () => {
         </div>
 
         {/* Como podemos te ajudar */}
-        <div id="services" className="py-10 md:py-20 -mx-4 md:-mx-6 px-4 md:px-6 bg-gray-800 bg-opacity-30 rounded-lg">
+        <div id="services" className="py-10 md:py-20">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:mb-8">
               Como podemos te ajudar?
@@ -312,13 +352,13 @@ const B2BPage = () => {
           </div>
           <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="bg-white bg-opacity-10 border border-white border-opacity-20 backdrop-blur-sm hover:scale-105 transition-all duration-300">
+              <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
                 <CardContent className="p-4 md:p-6 text-center">
                   <div className="mb-3 md:mb-4 flex justify-center">
                     {service.icon}
                   </div>
                   <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">{service.title}</h3>
-                  <p className="text-white text-opacity-90 text-sm md:text-base">{service.description}</p>
+                  <p className="text-gray-300 text-sm md:text-base">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
