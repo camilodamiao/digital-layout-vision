@@ -165,31 +165,7 @@ const B2BPage = () => {
         </div>
 
         {/* Conheça a EDUCA NEXTEST */}
-        <div style={{
-        backgroundColor: '#4FC3F7',
-        margin: '0 -1.5rem',
-        padding: '5rem 1.5rem',
-        borderRadius: '1rem'
-      }} className="py-20 bg-[#000a00]/0">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-8">
-              Conheça a EDUCA NEXTEST
-            </h2>
-            <div className="space-y-6 text-white text-lg leading-relaxed">
-              <p>
-                Fruto da união entre Educa Telecom, Consultoria DWDM da Engenharia Carmo Dorneles e Nextest, 
-                a Educa Nextest é uma empresa inovadora em educação para profissionais de telecom.
-              </p>
-              <p>
-                Nossa missão é revolucionar o setor de telecomunicações com treinamentos técnicos para iniciantes e veteranos.
-              </p>
-              <p>
-                Combinamos experiência técnica avançada e métodos de ensino inovadores para entregar uma experiência 
-                de aprendizado única, baseada em anos de atuação junto aos maiores clientes.
-              </p>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Benefícios e Diferenciais */}
         <div className="py-20">
