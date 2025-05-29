@@ -37,47 +37,47 @@ const B2BPage = () => {
     { 
       name: "Camilo Damião", 
       role: "Gerente de Produtos",
-      image: "/lovable-uploads/885c2a43-3181-46ef-b115-cb853ab9eb0b.png"
+      image: "/lovable-uploads/a9d75bd0-4f03-4d10-ae9f-77fd7daca1d7.png"
     },
     { 
       name: "Murillo Brito", 
       role: "Gerente de Treinamentos",
-      image: "/lovable-uploads/c526abe5-f518-451e-8d17-b1ea064ddc39.png"
+      image: "/lovable-uploads/b55b7fa0-ab77-4eb5-a0ac-72301fde4d4a.png"
     },
     { 
       name: "Thacio Cardoso", 
       role: "Analista de Suporte e Treinamentos",
-      image: "/lovable-uploads/7afcc1fe-344a-404a-849c-f6108145d639.png"
+      image: "/lovable-uploads/cc96ec33-2cc9-4801-ba06-ca25d05f7ed1.png"
     },
     { 
       name: "Alexandro Baumhardt", 
       role: "Gerente de Contas",
-      image: "/lovable-uploads/370dbbca-3f42-4866-97be-1b381c9f4df9.png"
+      image: "/lovable-uploads/e11afb9f-e35b-4020-b37a-ed589a18121b.png"
     },
     { 
       name: "Rodrigo Santos", 
       role: "Engenheiro de Vendas",
-      image: "/lovable-uploads/0498909b-4ea3-4d3f-93eb-a7f4d58db9da.png"
+      image: "/lovable-uploads/6470ca05-625b-4904-9acb-fa96fa35da16.png"
     },
     { 
       name: "Alyson Pessoa", 
       role: "Diretor Comercial",
-      image: "/lovable-uploads/dede930f-0c71-40b6-831b-f080c2d7b525.png"
+      image: "/lovable-uploads/f8e20740-99f9-4bd7-ad62-c997c6ba6b20.png"
     },
     { 
       name: "Danilo Teixeira", 
       role: "Gerente de Vendas",
-      image: "/lovable-uploads/1f0d6e6a-db2a-4e40-af60-4a89b21432e6.png"
+      image: "/lovable-uploads/d56f690c-dd26-4784-85a5-9d5029ecf06c.png"
     },
     { 
       name: "Julian Portilo", 
       role: "Pré-Vendas",
-      image: "/lovable-uploads/a33670e6-1679-4d5f-9c11-3aff6c3b4cdd.png"
+      image: "/lovable-uploads/ce35a898-6e42-4cdf-b438-46396a70799e.png"
     },
     { 
       name: "Alexandre Guimarães", 
       role: "Company Owner",
-      image: "/lovable-uploads/0bda33ca-e32a-44a3-ae13-2ca796d92a8d.png"
+      image: "/lovable-uploads/95032967-a3e2-45dd-bf4e-b86e41707caa.png"
     }
   ];
 
