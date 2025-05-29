@@ -35,49 +35,49 @@ const B2BPage = () => {
 
   const teamMembers = [
     { 
-      name: "Camila Carvalho", 
+      name: "Camilo Damião", 
+      role: "Gerente de Produtos",
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
+    },
+    { 
+      name: "Murillo Brito", 
+      role: "Gerente de Treinamentos",
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
+    },
+    { 
+      name: "Thacio Cardoso", 
+      role: "Analista de Suporte e Treinamentos",
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
+    },
+    { 
+      name: "Alexandro Baumhardt", 
       role: "Gerente de Contas",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
-    },
-    { 
-      name: "Murilo Rosa", 
-      role: "Especialista Técnico",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=400&fit=crop&crop=face"
-    },
-    { 
-      name: "Thiago Cardoso", 
-      role: "Coordenador",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=400&fit=crop&crop=face"
-    },
-    { 
-      name: "Alexandre Nascimento", 
-      role: "Instrutor Sênior",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=400&fit=crop&crop=face"
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
     },
     { 
       name: "Rodrigo Santos", 
-      role: "Consultor Técnico",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+      role: "Engenheiro de Vendas",
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
     },
     { 
-      name: "Ayrton Pereira", 
-      role: "Especialista em Fibra",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=400&fit=crop&crop=face"
+      name: "Alyson Pessoa", 
+      role: "Diretor Comercial",
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
     },
     { 
-      name: "Danilo Pereira", 
-      role: "Instrutor",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=400&fit=crop&crop=face"
+      name: "Danilo Teixeira", 
+      role: "Gerente de Vendas",
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
     },
     { 
-      name: "Judiel Martins", 
-      role: "Consultor",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=400&fit=crop&crop=face"
+      name: "Julian Portilo", 
+      role: "Pré-Vendas",
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
     },
     { 
-      name: "Alexandre Gomes Azi", 
-      role: "Diretor Técnico",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+      name: "Alexandre Guimarães", 
+      role: "Company Owner",
+      image: "/lovable-uploads/13fc976b-e352-4fbb-beb1-732066329a17.png"
     }
   ];
 
@@ -322,16 +322,26 @@ const B2BPage = () => {
             Nossa equipe conta com especialistas na área educacional no setor de telecomunicações, 
             liderada por engenheiros experientes.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
             {teamMembers.map((member, index) => (
               <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
-                <CardContent className="p-3 md:p-6 text-center">
-                  <Avatar className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4">
-                    <AvatarImage src={member.image} alt={member.name} className="object-cover" />
-                    <AvatarFallback className="text-white font-bold text-sm md:text-lg" style={{ backgroundColor: '#60AB4B' }}>
-                      {member.name.charAt(0)}
-                    </AvatarFallback>
-                  </Avatar>
+                <CardContent className="p-4 md:p-6 text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 rounded-full bg-gray-600 flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<span class="text-white font-bold text-lg">${member.name.charAt(0)}</span>`;
+                          parent.style.backgroundColor = '#60AB4B';
+                        }
+                      }}
+                    />
+                  </div>
                   <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-2">{member.name}</h3>
                   <p className="text-gray-300 text-xs md:text-sm">{member.role}</p>
                 </CardContent>
