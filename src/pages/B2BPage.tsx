@@ -35,19 +35,9 @@ const B2BPage = () => {
 
   const teamMembers = [
     { 
-      name: "Camilo Damião", 
-      role: "Gerente de Produtos",
-      image: "/lovable-uploads/885c2a43-3181-46ef-b115-cb853ab9eb0b.png"
-    },
-    { 
-      name: "Murillo Brito", 
-      role: "Gerente de Treinamentos",
-      image: "/lovable-uploads/c526abe5-f518-451e-8d17-b1ea064ddc39.png"
-    },
-    { 
-      name: "Thacio Cardoso", 
-      role: "Analista de Suporte e Treinamentos",
-      image: "/lovable-uploads/7afcc1fe-344a-404a-849c-f6108145d639.png"
+      name: "Alexandre Guimarães", 
+      role: "Company Owner",
+      image: "/lovable-uploads/0bda33ca-e32a-44a3-ae13-2ca796d92a8d.png"
     },
     { 
       name: "Alexandro Baumhardt", 
@@ -55,14 +45,14 @@ const B2BPage = () => {
       image: "/lovable-uploads/370dbbca-3f42-4866-97be-1b381c9f4df9.png"
     },
     { 
-      name: "Rodrigo Santos", 
-      role: "Engenheiro de Vendas",
-      image: "/lovable-uploads/0498909b-4ea3-4d3f-93eb-a7f4d58db9da.png"
-    },
-    { 
       name: "Alyson Pessoa", 
       role: "Diretor Comercial",
       image: "/lovable-uploads/dede930f-0c71-40b6-831b-f080c2d7b525.png"
+    },
+    { 
+      name: "Camilo Damião", 
+      role: "Gerente de Produtos",
+      image: "/lovable-uploads/885c2a43-3181-46ef-b115-cb853ab9eb0b.png"
     },
     { 
       name: "Danilo Teixeira", 
@@ -75,9 +65,19 @@ const B2BPage = () => {
       image: "/lovable-uploads/a33670e6-1679-4d5f-9c11-3aff6c3b4cdd.png"
     },
     { 
-      name: "Alexandre Guimarães", 
-      role: "Company Owner",
-      image: "/lovable-uploads/0bda33ca-e32a-44a3-ae13-2ca796d92a8d.png"
+      name: "Murillo Brito", 
+      role: "Gerente de Treinamentos",
+      image: "/lovable-uploads/c526abe5-f518-451e-8d17-b1ea064ddc39.png"
+    },
+    { 
+      name: "Rodrigo Santos", 
+      role: "Engenheiro de Vendas",
+      image: "/lovable-uploads/0498909b-4ea3-4d3f-93eb-a7f4d58db9da.png"
+    },
+    { 
+      name: "Thacio Cardoso", 
+      role: "Analista de Suporte e Treinamentos",
+      image: "/lovable-uploads/7afcc1fe-344a-404a-849c-f6108145d639.png"
     }
   ];
 
