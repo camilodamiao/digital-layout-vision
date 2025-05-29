@@ -280,7 +280,7 @@ const B2BPage = () => {
             <div className="relative mt-8 lg:mt-0">
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
                 <iframe 
-                  src="https://player.vimeo.com/video/1050147030?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479" 
+                  src="https://player.vimeo.com/video/1022315308?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479" 
                   width="100%" 
                   height="100%" 
                   frameBorder="0" 
