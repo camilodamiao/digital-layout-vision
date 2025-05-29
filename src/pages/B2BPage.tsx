@@ -1,252 +1,203 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Users, Target, Award, BarChart3, Shield, Clock, CheckCircle, Play, BookOpen, Headphones, Mail, Phone, MapPin, Linkedin, Instagram, Youtube, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 const B2BPage = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const whatsappNumber = "5511999999999"; // Substitua pelo número real
   const whatsappMessage = "Olá! Gostaria de saber mais sobre os treinamentos corporativos da Educa Nextest.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
   const handleWhatsAppClick = () => {
     window.open(whatsappUrl, '_blank');
   };
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
     setIsMenuOpen(false);
   };
-
-  const menuItems = [
-    { label: "A Educa", action: () => scrollToSection("hero") },
-    { label: "Treinamentos", action: () => scrollToSection("services") },
-    { label: "Quem somos", action: () => scrollToSection("team") },
-    { label: "Nossos serviços", action: () => scrollToSection("benefits") },
-  ];
-
-  const teamMembers = [
-    { 
-      name: "Camilo Damião", 
-      role: "Gerente de Produtos",
-      image: "/lovable-uploads/a9d75bd0-4f03-4d10-ae9f-77fd7daca1d7.png"
-    },
-    { 
-      name: "Murillo Brito", 
-      role: "Gerente de Treinamentos",
-      image: "/lovable-uploads/b55b7fa0-ab77-4eb5-a0ac-72301fde4d4a.png"
-    },
-    { 
-      name: "Thacio Cardoso", 
-      role: "Analista de Suporte e Treinamentos",
-      image: "/lovable-uploads/cc96ec33-2cc9-4801-ba06-ca25d05f7ed1.png"
-    },
-    { 
-      name: "Alexandro Baumhardt", 
-      role: "Gerente de Contas",
-      image: "/lovable-uploads/e11afb9f-e35b-4020-b37a-ed589a18121b.png"
-    },
-    { 
-      name: "Rodrigo Santos", 
-      role: "Engenheiro de Vendas",
-      image: "/lovable-uploads/6470ca05-625b-4904-9acb-fa96fa35da16.png"
-    },
-    { 
-      name: "Alyson Pessoa", 
-      role: "Diretor Comercial",
-      image: "/lovable-uploads/f8e20740-99f9-4bd7-ad62-c997c6ba6b20.png"
-    },
-    { 
-      name: "Danilo Teixeira", 
-      role: "Gerente de Vendas",
-      image: "/lovable-uploads/d56f690c-dd26-4784-85a5-9d5029ecf06c.png"
-    },
-    { 
-      name: "Julian Portilo", 
-      role: "Pré-Vendas",
-      image: "/lovable-uploads/ce35a898-6e42-4cdf-b438-46396a70799e.png"
-    },
-    { 
-      name: "Alexandre Guimarães", 
-      role: "Company Owner",
-      image: "/lovable-uploads/95032967-a3e2-45dd-bf4e-b86e41707caa.png"
-    }
-  ];
-
-  const services = [
-    {
-      title: "Cursos Personalizados",
-      description: "Desenvolvemos cursos sob medida para sua empresa, abrangendo tópicos relevantes como atendimento ao cliente, instalação e manutenção de redes.",
-      icon: <Target className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#60AB4B' }} />
-    },
-    {
-      title: "Treinamento ao Vivo",
-      description: "Nossos especialistas oferecem sessões de treinamento interativas e dinâmicas, garantindo que sua equipe adquira habilidades práticas.",
-      icon: <Users className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#4FC3F7' }} />
-    },
-    {
-      title: "Plataforma Online",
-      description: "Criamos uma plataforma online com mais de 200 horas de conteúdos, distribuídos entre assuntos técnicos e soft skills, para atender todas as áreas de sua empresa.",
-      icon: <Play className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#60AB4B' }} />
-    }
-  ];
-
-  const platformFeatures = [
-    "Conteúdos Interativos - +200 horas de cursos com vídeos, exercícios e testes interativos para engajamento da equipe.",
-    "Suporte Personalizado - Equipe de especialistas para fornecer orientação e tirar dúvidas.",
-    "Testes Dinâmicos e Seguros - Vários modelos de avaliação com mecanismos \"anti-cola\" para garantir a segurança e assertividade do conhecimento adquirido.",
-    "Acompanhamento de Progresso - Monitoramento do aprendizado e desempenho da sua equipe."
-  ];
-
-  const benefits = [
-    {
-      title: "+200h de Conteúdo",
-      description: "Biblioteca completa com mais de 200 horas de conteúdo especializado em telecomunicações.",
-      icon: <Clock className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#60AB4B' }} />
-    },
-    {
-      title: "Certificações Oficiais",
-      description: "Parceria com Viavi, Sumitomo e outros grandes fabricantes do setor.",
-      icon: <Award className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#60AB4B' }} />
-    },
-    {
-      title: "Dashboards para Gestores",
-      description: "Acompanhe o progresso da sua equipe em tempo real com relatórios detalhados.",
-      icon: <BarChart3 className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#60AB4B' }} />
-    },
-    {
-      title: "Formatos Híbridos",
-      description: "Online, ao vivo, gravado ou presencial. Escolha o que funciona melhor para sua equipe.",
-      icon: <Users className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#4FC3F7' }} />
-    },
-    {
-      title: "Mecanismos Anti-Cola",
-      description: "Tecnologia avançada para garantir a integridade e qualidade do aprendizado.",
-      icon: <Shield className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#4FC3F7' }} />
-    },
-    {
-      title: "Foco em Resultados",
-      description: "Metodologia comprovada com foco na aplicação prática e resultados mensuráveis.",
-      icon: <Target className="w-6 h-6 md:w-8 md:h-8" style={{ color: '#4FC3F7' }} />
-    }
-  ];
-
-  const heroFeatures = [
-    "Conteúdos ajustados às necessidades da sua empresa, garantindo resultados práticos e imediatos.",
-    "Cursos certificados e desenvolvidos por especialistas, foco nas tecnologias mais relevantes do mercado.",
-    "Acompanhe em tempo real o progresso e desempenho dos seus colaboradores, com relatórios detalhados de evolução."
-  ];
-
-  return (
-    <div className="min-h-screen" style={{ backgroundColor: '#102A3F' }}>
+  const menuItems = [{
+    label: "A Educa",
+    action: () => scrollToSection("hero")
+  }, {
+    label: "Treinamentos",
+    action: () => scrollToSection("services")
+  }, {
+    label: "Quem somos",
+    action: () => scrollToSection("team")
+  }, {
+    label: "Nossos serviços",
+    action: () => scrollToSection("benefits")
+  }];
+  const teamMembers = [{
+    name: "Camilo Damião",
+    role: "Gerente de Produtos",
+    image: "/lovable-uploads/a9d75bd0-4f03-4d10-ae9f-77fd7daca1d7.png"
+  }, {
+    name: "Murillo Brito",
+    role: "Gerente de Treinamentos",
+    image: "/lovable-uploads/b55b7fa0-ab77-4eb5-a0ac-72301fde4d4a.png"
+  }, {
+    name: "Thacio Cardoso",
+    role: "Analista de Suporte e Treinamentos",
+    image: "/lovable-uploads/cc96ec33-2cc9-4801-ba06-ca25d05f7ed1.png"
+  }, {
+    name: "Alexandro Baumhardt",
+    role: "Gerente de Contas",
+    image: "/lovable-uploads/e11afb9f-e35b-4020-b37a-ed589a18121b.png"
+  }, {
+    name: "Rodrigo Santos",
+    role: "Engenheiro de Vendas",
+    image: "/lovable-uploads/6470ca05-625b-4904-9acb-fa96fa35da16.png"
+  }, {
+    name: "Alyson Pessoa",
+    role: "Diretor Comercial",
+    image: "/lovable-uploads/f8e20740-99f9-4bd7-ad62-c997c6ba6b20.png"
+  }, {
+    name: "Danilo Teixeira",
+    role: "Gerente de Vendas",
+    image: "/lovable-uploads/d56f690c-dd26-4784-85a5-9d5029ecf06c.png"
+  }, {
+    name: "Julian Portilo",
+    role: "Pré-Vendas",
+    image: "/lovable-uploads/ce35a898-6e42-4cdf-b438-46396a70799e.png"
+  }, {
+    name: "Alexandre Guimarães",
+    role: "Company Owner",
+    image: "/lovable-uploads/95032967-a3e2-45dd-bf4e-b86e41707caa.png"
+  }];
+  const services = [{
+    title: "Cursos Personalizados",
+    description: "Desenvolvemos cursos sob medida para sua empresa, abrangendo tópicos relevantes como atendimento ao cliente, instalação e manutenção de redes.",
+    icon: <Target className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }, {
+    title: "Treinamento ao Vivo",
+    description: "Nossos especialistas oferecem sessões de treinamento interativas e dinâmicas, garantindo que sua equipe adquira habilidades práticas.",
+    icon: <Users className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#4FC3F7'
+    }} />
+  }, {
+    title: "Plataforma Online",
+    description: "Criamos uma plataforma online com mais de 200 horas de conteúdos, distribuídos entre assuntos técnicos e soft skills, para atender todas as áreas de sua empresa.",
+    icon: <Play className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }];
+  const platformFeatures = ["Conteúdos Interativos - +200 horas de cursos com vídeos, exercícios e testes interativos para engajamento da equipe.", "Suporte Personalizado - Equipe de especialistas para fornecer orientação e tirar dúvidas.", "Testes Dinâmicos e Seguros - Vários modelos de avaliação com mecanismos \"anti-cola\" para garantir a segurança e assertividade do conhecimento adquirido.", "Acompanhamento de Progresso - Monitoramento do aprendizado e desempenho da sua equipe."];
+  const benefits = [{
+    title: "+200h de Conteúdo",
+    description: "Biblioteca completa com mais de 200 horas de conteúdo especializado em telecomunicações.",
+    icon: <Clock className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }, {
+    title: "Certificações Oficiais",
+    description: "Parceria com Viavi, Sumitomo e outros grandes fabricantes do setor.",
+    icon: <Award className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }, {
+    title: "Dashboards para Gestores",
+    description: "Acompanhe o progresso da sua equipe em tempo real com relatórios detalhados.",
+    icon: <BarChart3 className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }, {
+    title: "Formatos Híbridos",
+    description: "Online, ao vivo, gravado ou presencial. Escolha o que funciona melhor para sua equipe.",
+    icon: <Users className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#4FC3F7'
+    }} />
+  }, {
+    title: "Mecanismos Anti-Cola",
+    description: "Tecnologia avançada para garantir a integridade e qualidade do aprendizado.",
+    icon: <Shield className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#4FC3F7'
+    }} />
+  }, {
+    title: "Foco em Resultados",
+    description: "Metodologia comprovada com foco na aplicação prática e resultados mensuráveis.",
+    icon: <Target className="w-6 h-6 md:w-8 md:h-8" style={{
+      color: '#4FC3F7'
+    }} />
+  }];
+  const heroFeatures = ["Conteúdos ajustados às necessidades da sua empresa, garantindo resultados práticos e imediatos.", "Cursos certificados e desenvolvidos por especialistas, foco nas tecnologias mais relevantes do mercado.", "Acompanhe em tempo real o progresso e desempenho dos seus colaboradores, com relatórios detalhados de evolução."];
+  return <div className="min-h-screen" style={{
+    backgroundColor: '#102A3F'
+  }}>
       {/* Static Header */}
       <header className="bg-white shadow-lg">
-        <div className="container mx-auto px-4 md:px-6 py-4">
+        <div className="container mx-auto px-4 md:px-6 py-4 bg-blue-900 bg-[120a3f]">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <img 
-                src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" 
-                alt="Educa Nextest" 
-                className="h-10 md:h-12" 
-              />
+              <img src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" alt="Educa Nextest" className="h-10 md:h-12" />
             </div>
 
             {/* Desktop Navigation Menu - Centered */}
             <nav className="hidden lg:flex items-center justify-center flex-1">
               <div className="flex items-center space-x-8">
-                {menuItems.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={item.action}
-                    className="text-gray-700 hover:text-gray-900 transition-colors text-base font-medium px-4 py-2 rounded-lg hover:bg-gray-50"
-                  >
+                {menuItems.map((item, index) => <button key={index} onClick={item.action} className="text-gray-700 hover:text-gray-900 transition-colors text-base font-medium px-4 py-2 rounded-lg hover:bg-gray-50">
                     {item.label}
-                  </button>
-                ))}
+                  </button>)}
               </div>
             </nav>
 
             {/* Right Side Actions */}
             <div className="flex items-center space-x-4">
               {/* Back Button - Hidden on mobile */}
-              <Button 
-                variant="ghost" 
-                onClick={() => navigate('/')} 
-                className="hidden md:flex text-gray-700 hover:bg-gray-100 text-base"
-              >
+              <Button variant="ghost" onClick={() => navigate('/')} className="hidden md:flex text-gray-700 hover:bg-gray-100 text-base">
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 Voltar
               </Button>
 
               {/* Login Button */}
-              <Button
-                onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')}
-                className="text-white font-semibold px-6 py-3 text-base rounded-lg hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: '#60AB4B' }}
-              >
+              <Button onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')} className="text-white font-semibold px-6 py-3 text-base rounded-lg hover:opacity-90 transition-opacity" style={{
+              backgroundColor: '#60AB4B'
+            }}>
                 Fazer login →
               </Button>
 
               {/* Mobile Menu Button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden text-gray-700 hover:bg-gray-100"
-              >
+              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-gray-700 hover:bg-gray-100">
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </Button>
             </div>
           </div>
 
           {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="lg:hidden mt-4 bg-white rounded-lg border border-gray-200 shadow-xl animate-in slide-in-from-top-2 duration-200">
+          {isMenuOpen && <div className="lg:hidden mt-4 bg-white rounded-lg border border-gray-200 shadow-xl animate-in slide-in-from-top-2 duration-200">
               <nav className="p-4 space-y-3">
-                {menuItems.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={item.action}
-                    className="block w-full text-left text-gray-700 hover:text-gray-900 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 text-base"
-                  >
+                {menuItems.map((item, index) => <button key={index} onClick={item.action} className="block w-full text-left text-gray-700 hover:text-gray-900 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 text-base">
                     {item.label}
-                  </button>
-                ))}
+                  </button>)}
                 <div className="pt-3 border-t border-gray-200">
-                  <Button 
-                    variant="ghost" 
-                    onClick={() => {
-                      navigate('/');
-                      setIsMenuOpen(false);
-                    }} 
-                    className="w-full text-gray-700 hover:bg-gray-50 justify-start py-3"
-                  >
+                  <Button variant="ghost" onClick={() => {
+                navigate('/');
+                setIsMenuOpen(false);
+              }} className="w-full text-gray-700 hover:bg-gray-50 justify-start py-3">
                     <ArrowLeft className="w-5 h-5 mr-2" />
                     Voltar
                   </Button>
                 </div>
               </nav>
-            </div>
-          )}
+            </div>}
         </div>
       </header>
 
       {/* CTA Flutuante */}
       <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
-        <Button 
-          onClick={handleWhatsAppClick} 
-          className="text-white font-semibold px-4 py-3 md:px-6 md:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm md:text-base" 
-          style={{ backgroundColor: '#60AB4B' }} 
-          size="lg"
-        >
+        <Button onClick={handleWhatsAppClick} className="text-white font-semibold px-4 py-3 md:px-6 md:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm md:text-base" style={{
+        backgroundColor: '#60AB4B'
+      }} size="lg">
           <MessageSquare className="w-4 h-4 md:w-5 md:h-5 mr-2" />
           Falar Agora
         </Button>
@@ -261,8 +212,8 @@ const B2BPage = () => {
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
                 Transforme sua equipe com 
                 <span className="block text-transparent bg-clip-text" style={{
-                  backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)'
-                }}>
+                backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)'
+              }}>
                   capacitação técnica
                 </span>
                 de alta performance
@@ -271,20 +222,17 @@ const B2BPage = () => {
 
               {/* Hero Features */}
               <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-                {heroFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 mt-1 flex-shrink-0" style={{ color: '#60AB4B' }} />
+                {heroFeatures.map((feature, index) => <div key={index} className="flex items-start space-x-3">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 mt-1 flex-shrink-0" style={{
+                  color: '#60AB4B'
+                }} />
                     <p className="text-gray-300 text-sm md:text-base">{feature}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
 
-              <Button 
-                onClick={handleWhatsAppClick} 
-                className="text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg hover:scale-105 transition-all duration-300 w-full md:w-auto" 
-                style={{ backgroundColor: '#60AB4B' }} 
-                size="lg"
-              >
+              <Button onClick={handleWhatsAppClick} className="text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg hover:scale-105 transition-all duration-300 w-full md:w-auto" style={{
+              backgroundColor: '#60AB4B'
+            }} size="lg">
                 <MessageSquare className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 FALAR COM ESPECIALISTA
               </Button>
@@ -293,15 +241,7 @@ const B2BPage = () => {
             {/* Vídeo Vimeo */}
             <div className="relative mt-8 lg:mt-0">
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
-                <iframe 
-                  src="https://player.vimeo.com/video/1022315308?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479" 
-                  width="100%" 
-                  height="100%" 
-                  frameBorder="0" 
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-                  title="Educa Nextest - Apresentação" 
-                  className="w-full h-full" 
-                />
+                <iframe src="https://player.vimeo.com/video/1022315308?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479" width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Educa Nextest - Apresentação" className="w-full h-full" />
               </div>
             </div>
           </div>
@@ -313,8 +253,7 @@ const B2BPage = () => {
             Por que escolher a Educa Nextest?
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
+            {benefits.map((benefit, index) => <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
                 <CardContent className="p-4 md:p-6 text-center">
                   <div className="mb-3 md:mb-4 flex justify-center">
                     {benefit.icon}
@@ -322,8 +261,7 @@ const B2BPage = () => {
                   <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">{benefit.title}</h3>
                   <p className="text-gray-300 text-sm md:text-base">{benefit.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -337,30 +275,23 @@ const B2BPage = () => {
             liderada por engenheiros experientes.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
+            {teamMembers.map((member, index) => <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
                 <CardContent className="p-4 md:p-6 text-center">
                   <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 rounded-full bg-gray-600 flex items-center justify-center overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
-                          parent.innerHTML = `<span class="text-white font-bold text-lg">${member.name.charAt(0)}</span>`;
-                          parent.style.backgroundColor = '#60AB4B';
-                        }
-                      }}
-                    />
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" onError={e => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    parent.innerHTML = `<span class="text-white font-bold text-lg">${member.name.charAt(0)}</span>`;
+                    parent.style.backgroundColor = '#60AB4B';
+                  }
+                }} />
                   </div>
                   <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-2">{member.name}</h3>
                   <p className="text-gray-300 text-xs md:text-sm">{member.role}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -375,8 +306,7 @@ const B2BPage = () => {
             </p>
           </div>
           <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
+            {services.map((service, index) => <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
                 <CardContent className="p-4 md:p-6 text-center">
                   <div className="mb-3 md:mb-4 flex justify-center">
                     {service.icon}
@@ -384,8 +314,7 @@ const B2BPage = () => {
                   <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">{service.title}</h3>
                   <p className="text-gray-300 text-sm md:text-base">{service.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -395,10 +324,11 @@ const B2BPage = () => {
             Recursos
           </h2>
           <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
-            {platformFeatures.map((feature, index) => (
-              <div key={index} className="p-4 md:p-6 rounded-lg bg-gray-800 bg-opacity-30 hover:bg-opacity-50 transition-all duration-300">
+            {platformFeatures.map((feature, index) => <div key={index} className="p-4 md:p-6 rounded-lg bg-gray-800 bg-opacity-30 hover:bg-opacity-50 transition-all duration-300">
                 <div className="flex items-start space-x-3 md:space-x-4">
-                  <CheckCircle className="w-5 h-5 md:w-6 md:h-6 mt-1 flex-shrink-0" style={{ color: '#60AB4B' }} />
+                  <CheckCircle className="w-5 h-5 md:w-6 md:h-6 mt-1 flex-shrink-0" style={{
+                color: '#60AB4B'
+              }} />
                   <div>
                     <h3 className="text-white font-semibold mb-1 md:mb-2 text-lg md:text-2xl">
                       {feature.split(' - ')[0]}
@@ -408,8 +338,7 @@ const B2BPage = () => {
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -425,7 +354,9 @@ const B2BPage = () => {
                   "A Educa Nextest transformou nossa equipe técnica. Em 6 meses, aumentamos nossa eficiência em 40% e reduzimos retrabalhos significativamente."
                 </p>
                 <div className="flex items-center">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3 md:mr-4" style={{ backgroundColor: '#60AB4B' }}></div>
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3 md:mr-4" style={{
+                  backgroundColor: '#60AB4B'
+                }}></div>
                   <div>
                     <p className="text-white font-semibold text-sm md:text-base">Carlos Silva</p>
                     <p className="text-gray-400 text-xs md:text-sm">Gerente Técnico - TechCorp</p>
@@ -440,7 +371,9 @@ const B2BPage = () => {
                   "O suporte e a qualidade do conteúdo são excepcionais. Nossa equipe está muito mais preparada para os desafios do mercado."
                 </p>
                 <div className="flex items-center">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3 md:mr-4" style={{ backgroundColor: '#4FC3F7' }}></div>
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3 md:mr-4" style={{
+                  backgroundColor: '#4FC3F7'
+                }}></div>
                   <div>
                     <p className="text-white font-semibold text-sm md:text-base">Ana Costa</p>
                     <p className="text-gray-400 text-xs md:text-sm">Diretora de RH - FiberNet</p>
@@ -459,12 +392,9 @@ const B2BPage = () => {
           <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-3xl mx-auto px-4">
             Fale com nossos especialistas e descubra como podemos acelerar os resultados da sua empresa.
           </p>
-          <Button 
-            onClick={handleWhatsAppClick} 
-            className="text-white font-semibold px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl hover:scale-105 transition-all duration-300 w-full md:w-auto" 
-            style={{ backgroundColor: '#60AB4B' }} 
-            size="lg"
-          >
+          <Button onClick={handleWhatsAppClick} className="text-white font-semibold px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl hover:scale-105 transition-all duration-300 w-full md:w-auto" style={{
+          backgroundColor: '#60AB4B'
+        }} size="lg">
             <MessageSquare className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />
             Conversar com Especialista Agora
           </Button>
@@ -499,15 +429,21 @@ const B2BPage = () => {
               <h3 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Contato</h3>
               <div className="space-y-2 md:space-y-3">
                 <div className="flex items-center text-gray-300 text-sm md:text-base">
-                  <Phone className="w-3 h-3 md:w-4 md:h-4 mr-2 md:mr-3" style={{ color: '#60AB4B' }} />
+                  <Phone className="w-3 h-3 md:w-4 md:h-4 mr-2 md:mr-3" style={{
+                  color: '#60AB4B'
+                }} />
                   <span>(11) 99999-9999</span>
                 </div>
                 <div className="flex items-center text-gray-300 text-sm md:text-base">
-                  <Mail className="w-3 h-3 md:w-4 md:h-4 mr-2 md:mr-3" style={{ color: '#60AB4B' }} />
+                  <Mail className="w-3 h-3 md:w-4 md:h-4 mr-2 md:mr-3" style={{
+                  color: '#60AB4B'
+                }} />
                   <span>contato@educanextest.com.br</span>
                 </div>
                 <div className="flex items-start text-gray-300 text-sm md:text-base">
-                  <MapPin className="w-3 h-3 md:w-4 md:h-4 mr-2 md:mr-3 mt-1" style={{ color: '#60AB4B' }} />
+                  <MapPin className="w-3 h-3 md:w-4 md:h-4 mr-2 md:mr-3 mt-1" style={{
+                  color: '#60AB4B'
+                }} />
                   <span>São Paulo, SP<br />Brasil</span>
                 </div>
               </div>
@@ -532,8 +468,6 @@ const B2BPage = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default B2BPage;
