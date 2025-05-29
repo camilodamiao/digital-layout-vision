@@ -2,122 +2,103 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, MessageSquare, Users, Target, Award, BarChart3, Shield, Clock, CheckCircle, Play, BookOpen, Headphones, Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
 const B2BPage = () => {
   const navigate = useNavigate();
   const whatsappNumber = "5511999999999"; // Substitua pelo número real
   const whatsappMessage = "Olá! Gostaria de saber mais sobre os treinamentos corporativos da Educa Nextest.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
   const handleWhatsAppClick = () => {
     window.open(whatsappUrl, '_blank');
   };
-
-  const teamMembers = [
-    {
-      name: "Camila Carvalho",
-      role: "Gerente de Contas"
-    },
-    {
-      name: "Murilo Rosa",
-      role: "Especialista Técnico"
-    },
-    {
-      name: "Thiago Cardoso",
-      role: "Coordenador"
-    },
-    {
-      name: "Alexandre Nascimento",
-      role: "Instrutor Sênior"
-    },
-    {
-      name: "Rodrigo Santos",
-      role: "Consultor Técnico"
-    },
-    {
-      name: "Ayrton Pereira",
-      role: "Especialista em Fibra"
-    },
-    {
-      name: "Danilo Pereira",
-      role: "Instrutor"
-    },
-    {
-      name: "Judiel Martins",
-      role: "Consultor"
-    },
-    {
-      name: "Alexandre Gomes Azi",
-      role: "Diretor Técnico"
-    }
-  ];
-
-  const services = [
-    {
-      title: "Cursos Personalizados",
-      description: "Desenvolvemos cursos sob medida para sua empresa, abrangendo tópicos relevantes como atendimento ao cliente, instalação e manutenção de redes.",
-      icon: <Target className="w-8 h-8" style={{ color: '#60AB4B' }} />
-    },
-    {
-      title: "Treinamento ao Vivo",
-      description: "Nossos especialistas oferecem sessões de treinamento interativas e dinâmicas, garantindo que sua equipe adquira habilidades práticas.",
-      icon: <Users className="w-8 h-8" style={{ color: '#4FC3F7' }} />
-    },
-    {
-      title: "Plataforma Online",
-      description: "Criamos uma plataforma online com mais de 150 horas de conteúdos, distribuídos entre assuntos técnicos e soft skills, para atender todas as áreas de sua empresa.",
-      icon: <Play className="w-8 h-8" style={{ color: '#60AB4B' }} />
-    }
-  ];
-
-  const platformFeatures = [
-    "Conteúdos Interativos - +150 horas de cursos com vídeos, exercícios e testes interativos para engajamento da equipe.",
-    "Suporte Personalizado - Equipe de especialistas para fornecer orientação e tirar dúvidas.",
-    "Testes Dinâmicos e Seguros - Vários modelos de avaliação com mecanismos \"anti-cola\" para garantir a segurança e assertividade do conhecimento adquirido.",
-    "Acompanhamento de Progresso - Monitoramento do aprendizado e desempenho da sua equipe."
-  ];
-
-  const benefits = [
-    {
-      title: "+150h de Conteúdo",
-      description: "Biblioteca completa com mais de 150 horas de conteúdo especializado em telecomunicações.",
-      icon: <Clock className="w-8 h-8" style={{ color: '#60AB4B' }} />
-    },
-    {
-      title: "Certificações Oficiais",
-      description: "Parceria com Viavi, Sumitomo e outros grandes fabricantes do setor.",
-      icon: <Award className="w-8 h-8" style={{ color: '#60AB4B' }} />
-    },
-    {
-      title: "Dashboards para Gestores",
-      description: "Acompanhe o progresso da sua equipe em tempo real com relatórios detalhados.",
-      icon: <BarChart3 className="w-8 h-8" style={{ color: '#60AB4B' }} />
-    },
-    {
-      title: "Formatos Híbridos",
-      description: "Online, ao vivo, gravado ou presencial. Escolha o que funciona melhor para sua equipe.",
-      icon: <Users className="w-8 h-8" style={{ color: '#4FC3F7' }} />
-    },
-    {
-      title: "Mecanismos Anti-Cola",
-      description: "Tecnologia avançada para garantir a integridade e qualidade do aprendizado.",
-      icon: <Shield className="w-8 h-8" style={{ color: '#4FC3F7' }} />
-    },
-    {
-      title: "Foco em Resultados",
-      description: "Metodologia comprovada com foco na aplicação prática e resultados mensuráveis.",
-      icon: <Target className="w-8 h-8" style={{ color: '#4FC3F7' }} />
-    }
-  ];
-
-  const heroFeatures = [
-    "Conteúdos ajustados às necessidades da sua empresa, garantindo resultados práticos e imediatos.",
-    "Cursos certificados e desenvolvidos por especialistas, foco nas tecnologias mais relevantes do mercado.",
-    "Acompanhe em tempo real o progresso e desempenho dos seus colaboradores, com relatórios detalhados de evolução."
-  ];
-
-  return (
-    <div className="min-h-screen" style={{ backgroundColor: '#102A3F' }}>
+  const teamMembers = [{
+    name: "Camila Carvalho",
+    role: "Gerente de Contas"
+  }, {
+    name: "Murilo Rosa",
+    role: "Especialista Técnico"
+  }, {
+    name: "Thiago Cardoso",
+    role: "Coordenador"
+  }, {
+    name: "Alexandre Nascimento",
+    role: "Instrutor Sênior"
+  }, {
+    name: "Rodrigo Santos",
+    role: "Consultor Técnico"
+  }, {
+    name: "Ayrton Pereira",
+    role: "Especialista em Fibra"
+  }, {
+    name: "Danilo Pereira",
+    role: "Instrutor"
+  }, {
+    name: "Judiel Martins",
+    role: "Consultor"
+  }, {
+    name: "Alexandre Gomes Azi",
+    role: "Diretor Técnico"
+  }];
+  const services = [{
+    title: "Cursos Personalizados",
+    description: "Desenvolvemos cursos sob medida para sua empresa, abrangendo tópicos relevantes como atendimento ao cliente, instalação e manutenção de redes.",
+    icon: <Target className="w-8 h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }, {
+    title: "Treinamento ao Vivo",
+    description: "Nossos especialistas oferecem sessões de treinamento interativas e dinâmicas, garantindo que sua equipe adquira habilidades práticas.",
+    icon: <Users className="w-8 h-8" style={{
+      color: '#4FC3F7'
+    }} />
+  }, {
+    title: "Plataforma Online",
+    description: "Criamos uma plataforma online com mais de 150 horas de conteúdos, distribuídos entre assuntos técnicos e soft skills, para atender todas as áreas de sua empresa.",
+    icon: <Play className="w-8 h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }];
+  const platformFeatures = ["Conteúdos Interativos - +150 horas de cursos com vídeos, exercícios e testes interativos para engajamento da equipe.", "Suporte Personalizado - Equipe de especialistas para fornecer orientação e tirar dúvidas.", "Testes Dinâmicos e Seguros - Vários modelos de avaliação com mecanismos \"anti-cola\" para garantir a segurança e assertividade do conhecimento adquirido.", "Acompanhamento de Progresso - Monitoramento do aprendizado e desempenho da sua equipe."];
+  const benefits = [{
+    title: "+150h de Conteúdo",
+    description: "Biblioteca completa com mais de 150 horas de conteúdo especializado em telecomunicações.",
+    icon: <Clock className="w-8 h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }, {
+    title: "Certificações Oficiais",
+    description: "Parceria com Viavi, Sumitomo e outros grandes fabricantes do setor.",
+    icon: <Award className="w-8 h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }, {
+    title: "Dashboards para Gestores",
+    description: "Acompanhe o progresso da sua equipe em tempo real com relatórios detalhados.",
+    icon: <BarChart3 className="w-8 h-8" style={{
+      color: '#60AB4B'
+    }} />
+  }, {
+    title: "Formatos Híbridos",
+    description: "Online, ao vivo, gravado ou presencial. Escolha o que funciona melhor para sua equipe.",
+    icon: <Users className="w-8 h-8" style={{
+      color: '#4FC3F7'
+    }} />
+  }, {
+    title: "Mecanismos Anti-Cola",
+    description: "Tecnologia avançada para garantir a integridade e qualidade do aprendizado.",
+    icon: <Shield className="w-8 h-8" style={{
+      color: '#4FC3F7'
+    }} />
+  }, {
+    title: "Foco em Resultados",
+    description: "Metodologia comprovada com foco na aplicação prática e resultados mensuráveis.",
+    icon: <Target className="w-8 h-8" style={{
+      color: '#4FC3F7'
+    }} />
+  }];
+  const heroFeatures = ["Conteúdos ajustados às necessidades da sua empresa, garantindo resultados práticos e imediatos.", "Cursos certificados e desenvolvidos por especialistas, foco nas tecnologias mais relevantes do mercado.", "Acompanhe em tempo real o progresso e desempenho dos seus colaboradores, com relatórios detalhados de evolução."];
+  return <div className="min-h-screen" style={{
+    backgroundColor: '#102A3F'
+  }}>
       {/* Header */}
       <header className="relative z-10 py-6 px-6">
         <div className="container mx-auto flex items-center justify-between">
@@ -148,33 +129,27 @@ const B2BPage = () => {
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Transforme sua equipe com 
                 <span className="block text-transparent bg-clip-text" style={{
-                  backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)'
-                }}>
+                backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)'
+              }}>
                   capacitação técnica
                 </span>
                 de alta performance
               </h1>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Treinamentos personalizados, certificados e focados em resultados. 
-                + DE 150 HORAS DE CONTEÚDO PARA TODA A SUA EMPRESA
-              </p>
+              
 
               {/* Hero Features */}
               <div className="space-y-4 mb-8">
-                {heroFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: '#60AB4B' }} />
+                {heroFeatures.map((feature, index) => <div key={index} className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 mt-1 flex-shrink-0" style={{
+                  color: '#60AB4B'
+                }} />
                     <p className="text-gray-300">{feature}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
 
-              <Button 
-                onClick={handleWhatsAppClick} 
-                className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300" 
-                style={{ backgroundColor: '#60AB4B' }} 
-                size="lg"
-              >
+              <Button onClick={handleWhatsAppClick} className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300" style={{
+              backgroundColor: '#60AB4B'
+            }} size="lg">
                 <MessageSquare className="w-5 h-5 mr-2" />
                 FALAR COM ESPECIALISTA
               </Button>
@@ -183,15 +158,7 @@ const B2BPage = () => {
             {/* Vídeo Vimeo */}
             <div className="relative">
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
-                <iframe
-                  src="https://player.vimeo.com/video/1050147030?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                  title="Educa Nextest - Apresentação"
-                  className="w-full h-full"
-                />
+                <iframe src="https://player.vimeo.com/video/1050147030?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479" width="100%" height="100%" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Educa Nextest - Apresentação" className="w-full h-full" />
               </div>
             </div>
           </div>
@@ -199,11 +166,11 @@ const B2BPage = () => {
 
         {/* Conheça a EDUCA NEXTEST */}
         <div style={{
-          backgroundColor: '#4FC3F7',
-          margin: '0 -1.5rem',
-          padding: '5rem 1.5rem',
-          borderRadius: '1rem'
-        }} className="py-20 bg-[#000a00]/0">
+        backgroundColor: '#4FC3F7',
+        margin: '0 -1.5rem',
+        padding: '5rem 1.5rem',
+        borderRadius: '1rem'
+      }} className="py-20 bg-[#000a00]/0">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-8">
               Conheça a EDUCA NEXTEST
@@ -268,11 +235,11 @@ const B2BPage = () => {
 
         {/* Como podemos te ajudar */}
         <div style={{
-          backgroundColor: '#4FC3F7',
-          margin: '0 -1.5rem',
-          padding: '5rem 1.5rem',
-          borderRadius: '1rem'
-        }} className="py-20 bg-[#000a00]/0">
+        backgroundColor: '#4FC3F7',
+        margin: '0 -1.5rem',
+        padding: '5rem 1.5rem',
+        borderRadius: '1rem'
+      }} className="py-20 bg-[#000a00]/0">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-8">
               Como podemos te ajudar?
@@ -282,8 +249,7 @@ const B2BPage = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="bg-white bg-opacity-10 border border-white border-opacity-20 backdrop-blur-sm hover:scale-105 transition-all duration-300">
+            {services.map((service, index) => <Card key={index} className="bg-white bg-opacity-10 border border-white border-opacity-20 backdrop-blur-sm hover:scale-105 transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="mb-4">
                     {service.icon}
@@ -291,8 +257,7 @@ const B2BPage = () => {
                   <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
                   <p className="text-white text-opacity-90">{service.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
 
@@ -302,10 +267,11 @@ const B2BPage = () => {
             Recursos
           </h2>
           <div className="max-w-4xl mx-auto space-y-6">
-            {platformFeatures.map((feature, index) => (
-              <div key={index} className="p-6 rounded-lg bg-gray-800 bg-opacity-30 hover:bg-opacity-50 transition-all duration-300">
+            {platformFeatures.map((feature, index) => <div key={index} className="p-6 rounded-lg bg-gray-800 bg-opacity-30 hover:bg-opacity-50 transition-all duration-300">
                 <div className="flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: '#60AB4B' }} />
+                  <CheckCircle className="w-6 h-6 mt-1 flex-shrink-0" style={{
+                color: '#60AB4B'
+              }} />
                   <div>
                     <h3 className="text-white text-lg font-semibold mb-2">
                       {feature.split(' - ')[0]}
@@ -315,8 +281,7 @@ const B2BPage = () => {
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -364,11 +329,11 @@ const B2BPage = () => {
 
         {/* FAQ Section */}
         <div style={{
-          backgroundColor: '#4FC3F7',
-          margin: '0 -1.5rem',
-          padding: '5rem 1.5rem',
-          borderRadius: '1rem'
-        }} className="py-20 bg-[#000a00]/0">
+        backgroundColor: '#4FC3F7',
+        margin: '0 -1.5rem',
+        padding: '5rem 1.5rem',
+        borderRadius: '1rem'
+      }} className="py-20 bg-[#000a00]/0">
           <div className="text-center">
             <h2 className="text-4xl font-bold text-white mb-8">
               FICOU COM DÚVIDAS SOBRE OS TREINAMENTOS?
@@ -469,8 +434,6 @@ const B2BPage = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default B2BPage;
