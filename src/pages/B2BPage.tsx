@@ -249,10 +249,10 @@ const B2BPage = () => {
                 color: '#60AB4B'
               }} />
                   <div>
-                    <h3 className="text-white text-lg font-semibold mb-2">
+                    <h3 className="text-white font-semibold mb-2 text-2xl">
                       {feature.split(' - ')[0]}
                     </h3>
-                    <p className="text-gray-300">
+                    <p className="text-gray-300 font-normal text-lg">
                       {feature.split(' - ')[1]}
                     </p>
                   </div>
