@@ -304,27 +304,7 @@ const B2BPage = () => {
         </div>
 
         {/* FAQ Section */}
-        <div style={{
-        backgroundColor: '#4FC3F7',
-        margin: '0 -1.5rem',
-        padding: '5rem 1.5rem',
-        borderRadius: '1rem'
-      }} className="py-20 bg-[#000a00]/0">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold text-white mb-8">
-              FICOU COM DÚVIDAS SOBRE OS TREINAMENTOS?
-            </h2>
-            <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
-              Entre em contato com nossos consultores e tire todas as suas dúvidas sobre nossos treinamentos.
-            </p>
-            <Button onClick={handleWhatsAppClick} className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300" style={{
-            backgroundColor: '#60AB4B'
-          }} size="lg">
-              <MessageSquare className="w-5 h-5 mr-2" />
-              ENTRAR EM CONTATO
-            </Button>
-          </div>
-        </div>
+        
 
         {/* CTA Final */}
         <div className="py-20 text-center">
