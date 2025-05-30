@@ -137,25 +137,30 @@ const B2BPage = () => {
   const heroFeatures = ["Conteúdos ajustados às necessidades da sua empresa, garantindo resultados práticos e imediatos.", "Cursos certificados e desenvolvidos por especialistas, foco nas tecnologias mais relevantes do mercado.", "Acompanhe em tempo real o progresso e desempenho dos seus colaboradores, com relatórios detalhados de evolução."];
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #102A3F 0%, #0A1F2E 50%, #102A3F 100%)' }}>
+    <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 25%, #0D1B2A 50%, #102A3F 75%, #0A1019 100%)' }}>
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0),
+            radial-gradient(circle at 2px 2px, rgba(79,195,247,0.3) 1px, transparent 0),
             linear-gradient(45deg, transparent 24%, rgba(96,171,75,0.1) 25%, rgba(96,171,75,0.1) 26%, transparent 27%, transparent 74%, rgba(79,195,247,0.1) 75%, rgba(79,195,247,0.1) 76%, transparent 77%)
           `,
           backgroundSize: '40px 40px, 80px 80px'
         }}></div>
         
         {/* Geometric shapes */}
-        <div className="absolute top-20 left-10 w-32 h-32 border border-cyan-400 opacity-20 rotate-45 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 border border-green-400 opacity-20 rotate-12 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-40 left-1/4 w-20 h-20 border border-blue-400 opacity-20 rotate-45 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-10 w-32 h-32 border border-cyan-400 opacity-20 rotate-45 circuit-line"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 border border-green-400 opacity-20 rotate-12 circuit-line" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-40 left-1/4 w-20 h-20 border border-blue-400 opacity-20 rotate-45 circuit-line" style={{ animationDelay: '2s' }}></div>
         
         {/* Circuit lines */}
-        <div className="absolute top-0 left-1/3 w-px h-40 bg-gradient-to-b from-transparent via-cyan-400 to-transparent opacity-30"></div>
-        <div className="absolute top-60 right-1/4 w-px h-32 bg-gradient-to-b from-transparent via-green-400 to-transparent opacity-30"></div>
+        <div className="absolute top-0 left-1/3 w-px h-40 bg-gradient-to-b from-transparent via-cyan-400 to-transparent opacity-30 circuit-line"></div>
+        <div className="absolute top-60 right-1/4 w-px h-32 bg-gradient-to-b from-transparent via-green-400 to-transparent opacity-30 circuit-line" style={{ animationDelay: '1.5s' }}></div>
+        
+        {/* Floating particles */}
+        <div className="absolute top-1/4 left-1/5 w-1 h-1 bg-cyan-400 rounded-full opacity-60 circuit-line"></div>
+        <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-green-400 rounded-full opacity-60 circuit-line" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-1/2 left-2/3 w-1 h-1 bg-blue-400 rounded-full opacity-60 circuit-line" style={{ animationDelay: '2.5s' }}></div>
       </div>
 
       {/* Static Header */}
@@ -256,16 +261,11 @@ const B2BPage = () => {
       <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
         <Button
           onClick={handleWhatsAppClick}
-          className="text-white font-semibold px-4 py-3 md:px-6 md:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm md:text-base relative overflow-hidden group"
-          style={{
-            background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-            boxShadow: '0 0 30px rgba(96,171,75,0.5)'
-          }}
+          className="text-white font-semibold px-4 py-3 md:px-6 md:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm md:text-base relative overflow-hidden group bg-green-600 hover:bg-green-700"
           size="lg"
         >
           <MessageSquare className="w-4 h-4 md:w-5 md:h-5 mr-2" />
           <span className="relative z-10">Falar Agora</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
         </Button>
       </div>
 
@@ -297,22 +297,17 @@ const B2BPage = () => {
 
               <Button
                 onClick={handleWhatsAppClick}
-                className="text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg hover:scale-105 transition-all duration-300 w-full md:w-auto relative overflow-hidden group"
-                style={{
-                  background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-                  boxShadow: '0 0 30px rgba(96,171,75,0.3)'
-                }}
+                className="text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg hover:scale-105 transition-all duration-300 w-full md:w-auto relative overflow-hidden group bg-green-600 hover:bg-green-700"
                 size="lg"
               >
                 <MessageSquare className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 <span className="relative z-10">FALAR COM ESPECIALISTA</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </Button>
             </div>
             
             {/* Vídeo Vimeo */}
             <div className="relative mt-8 lg:mt-0">
-              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border border-cyan-400/20" style={{ boxShadow: '0 0 40px rgba(79,195,247,0.2)' }}>
+              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border border-cyan-400/20 glow-effect">
                 <iframe
                   src="https://player.vimeo.com/video/1022315308?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479"
                   width="100%"
@@ -330,10 +325,10 @@ const B2BPage = () => {
         {/* Section Separator */}
         <div className="relative py-8">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
           </div>
           <div className="relative flex justify-center">
-            <div className="w-16 h-px bg-gradient-to-r from-cyan-400 to-green-400"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-cyan-400 to-green-400 glow-effect"></div>
           </div>
         </div>
 
@@ -346,8 +341,7 @@ const B2BPage = () => {
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-cyan-400/20 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:border-cyan-400/40 group"
-                style={{ boxShadow: '0 0 20px rgba(79,195,247,0.1)' }}
+                className="gradient-border bg-gradient-to-br from-blue-900/20 to-blue-800/10 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl group"
               >
                 <CardContent className="p-4 md:p-6 text-center">
                   <div className="mb-3 md:mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
@@ -364,10 +358,10 @@ const B2BPage = () => {
         {/* Section Separator */}
         <div className="relative py-8">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gradient-to-r from-transparent via-green-400/50 to-transparent"></div>
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-green-400/30 to-transparent"></div>
           </div>
           <div className="relative flex justify-center">
-            <div className="w-16 h-px bg-gradient-to-r from-green-400 to-cyan-400"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-green-400 to-cyan-400 glow-effect"></div>
           </div>
         </div>
 
@@ -384,8 +378,7 @@ const B2BPage = () => {
             {teamMembers.map((member, index) => (
               <Card
                 key={index}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-cyan-400/20 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:border-cyan-400/40 group"
-                style={{ boxShadow: '0 0 15px rgba(79,195,247,0.1)' }}
+                className="gradient-border bg-gradient-to-br from-blue-900/20 to-blue-800/10 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl group"
               >
                 <CardContent className="p-4 md:p-6 text-center">
                   <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-3 md:mb-4 rounded-full bg-gradient-to-br from-cyan-400/20 to-green-400/20 flex items-center justify-center overflow-hidden border-2 border-cyan-400/30 group-hover:border-cyan-400/60 transition-all duration-300">
@@ -415,10 +408,10 @@ const B2BPage = () => {
         {/* Section Separator */}
         <div className="relative py-8">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
           </div>
           <div className="relative flex justify-center">
-            <div className="w-16 h-px bg-gradient-to-r from-cyan-400 to-green-400"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-cyan-400 to-green-400 glow-effect"></div>
           </div>
         </div>
 
@@ -436,8 +429,7 @@ const B2BPage = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-green-400/20 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:border-green-400/40 group"
-                style={{ boxShadow: '0 0 20px rgba(96,171,75,0.1)' }}
+                className="gradient-border bg-gradient-to-br from-blue-900/20 to-blue-800/10 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl group"
               >
                 <CardContent className="p-4 md:p-6 text-center">
                   <div className="mb-3 md:mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
@@ -454,10 +446,10 @@ const B2BPage = () => {
         {/* Section Separator */}
         <div className="relative py-8">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gradient-to-r from-transparent via-green-400/50 to-transparent"></div>
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-green-400/30 to-transparent"></div>
           </div>
           <div className="relative flex justify-center">
-            <div className="w-16 h-px bg-gradient-to-r from-green-400 to-cyan-400"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-green-400 to-cyan-400 glow-effect"></div>
           </div>
         </div>
 
@@ -470,8 +462,7 @@ const B2BPage = () => {
             {platformFeatures.map((feature, index) => (
               <div
                 key={index}
-                className="p-4 md:p-6 rounded-lg bg-gradient-to-r from-gray-800/30 to-gray-900/30 hover:from-gray-800/50 hover:to-gray-900/50 transition-all duration-300 border border-cyan-400/20 hover:border-cyan-400/40 group hover:shadow-xl"
-                style={{ boxShadow: '0 0 15px rgba(79,195,247,0.1)' }}
+                className="p-4 md:p-6 rounded-lg gradient-border bg-gradient-to-r from-blue-900/10 to-blue-800/5 hover:from-blue-900/20 hover:to-blue-800/10 transition-all duration-300 group hover:shadow-xl"
               >
                 <div className="flex items-start space-x-3 md:space-x-4">
                   <CheckCircle className="w-5 h-5 md:w-6 md:h-6 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" style={{ color: '#60AB4B' }} />
@@ -492,10 +483,10 @@ const B2BPage = () => {
         {/* Section Separator */}
         <div className="relative py-8">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"></div>
           </div>
           <div className="relative flex justify-center">
-            <div className="w-16 h-px bg-gradient-to-r from-cyan-400 to-green-400"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-cyan-400 to-green-400 glow-effect"></div>
           </div>
         </div>
 
@@ -505,7 +496,7 @@ const B2BPage = () => {
             O que nossos clientes dizem
           </h2>
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-cyan-400/20 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:border-cyan-400/40 group" style={{ boxShadow: '0 0 20px rgba(79,195,247,0.1)' }}>
+            <Card className="gradient-border bg-gradient-to-br from-blue-900/20 to-blue-800/10 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
               <CardContent className="p-4 md:p-6">
                 <p className="text-gray-300 mb-3 md:mb-4 italic text-sm md:text-base group-hover:text-white transition-colors duration-300">
                   "A Educa Nextest transformou nossa equipe técnica. Em 6 meses, aumentamos nossa eficiência em 40% e reduzimos retrabalhos significativamente."
@@ -520,7 +511,7 @@ const B2BPage = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-green-400/20 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:border-green-400/40 group" style={{ boxShadow: '0 0 20px rgba(96,171,75,0.1)' }}>
+            <Card className="gradient-border bg-gradient-to-br from-blue-900/20 to-blue-800/10 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
               <CardContent className="p-4 md:p-6">
                 <p className="text-gray-300 mb-3 md:mb-4 italic text-sm md:text-base group-hover:text-white transition-colors duration-300">
                   "O suporte e a qualidade do conteúdo são excepcionais. Nossa equipe está muito mais preparada para os desafios do mercado."
@@ -547,22 +538,17 @@ const B2BPage = () => {
           </p>
           <Button
             onClick={handleWhatsAppClick}
-            className="text-white font-semibold px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl hover:scale-105 transition-all duration-300 w-full md:w-auto relative overflow-hidden group"
-            style={{
-              background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-              boxShadow: '0 0 40px rgba(96,171,75,0.3)'
-            }}
+            className="text-white font-semibold px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl hover:scale-105 transition-all duration-300 w-full md:w-auto relative overflow-hidden group bg-green-600 hover:bg-green-700"
             size="lg"
           >
             <MessageSquare className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />
             <span className="relative z-10">Conversar com Especialista Agora</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
           </Button>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm mt-10 md:mt-20 border-t border-cyan-400/20" style={{ boxShadow: '0 -10px 30px rgba(79,195,247,0.1)' }}>
+      <footer className="bg-gradient-to-br from-blue-950/90 to-slate-900/90 backdrop-blur-sm mt-10 md:mt-20 border-t border-cyan-400/20" style={{ boxShadow: '0 -10px 30px rgba(79,195,247,0.1)' }}>
         <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {/* Logo e Descrição */}
