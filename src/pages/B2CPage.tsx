@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,14 +9,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import { 
-  ArrowLeft, 
   MessageSquare, 
   Clock, 
   Search, 
   Play,
-  CheckCircle,
   Star,
   Users,
   Award,
@@ -28,6 +24,10 @@ import {
   ChevronDown
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import BackgroundWrapper from "@/components/common/BackgroundWrapper";
+import MobileHeader from "@/components/common/MobileHeader";
+import SectionSeparator from "@/components/common/SectionSeparator";
+import Footer from "@/components/common/Footer";
 
 const B2CPage = () => {
   const navigate = useNavigate();
@@ -278,45 +278,17 @@ const B2CPage = () => {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 25%, #0D1B2A 50%, #102A3F 75%, #0A1019 100%)' }}>
+    <BackgroundWrapper>
       {/* Header */}
-      <header className="relative z-10 py-6 px-6" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #0D1B2A 50%, #102A3F 100%)' }}>
-        <div className="container mx-auto flex items-center justify-between">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/')}
-            className="text-white hover:bg-white hover:bg-opacity-10"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Voltar
-          </Button>
-          <img 
-            src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" 
-            alt="Educa Nextest" 
-            className="h-12"
-          />
-          <Button 
-            onClick={handleWhatsAppClick}
-            className="text-white font-semibold hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-            style={{
-              background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-              boxShadow: '0 0 15px rgba(37,211,102,0.3)'
-            }}
-          >
-            <MessageSquare className="w-4 h-4 mr-2" />
-            <span className="relative z-10">Dúvidas</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-          </Button>
-        </div>
-      </header>
+      <MobileHeader showBackButton={true} onWhatsAppClick={handleWhatsAppClick} />
 
-      <div className="relative z-10 container mx-auto px-6">
-        {/* Hero Section Expandida com Video */}
-        <div className="py-20 mb-20 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
+        {/* Hero Section com Video */}
+        <div className="py-16 sm:py-20 mb-16 sm:mb-20 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Text Content */}
-            <div className="text-left">
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
+            <div className="text-left order-2 lg:order-1">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-8 leading-tight">
                 Transforme sua
                 <span className="block text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)' }}>
                   Carreira em
@@ -325,14 +297,14 @@ const B2CPage = () => {
                   Telecomunicações
                 </span>
               </h1>
-              <p className="text-2xl text-gray-300 mb-10 leading-relaxed">
+              <p className="text-xl sm:text-2xl text-gray-300 mb-8 sm:mb-10 leading-relaxed">
                 Cursos práticos e certificados pelos maiores fabricantes do setor. 
                 <span className="block mt-2 text-green-400 font-semibold">Ensino personalizado que impulsiona resultados.</span>
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8 sm:mb-12">
                 <Button 
                   onClick={scrollToCourses}
-                  className="text-white font-semibold px-10 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  className="text-white font-semibold px-8 sm:px-10 py-4 sm:py-6 text-lg sm:text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
                     boxShadow: '0 0 25px rgba(96,171,75,0.4)'
@@ -344,38 +316,38 @@ const B2CPage = () => {
                 </Button>
                 <Button 
                   onClick={handleWhatsAppClick}
-                  className="text-white font-semibold px-10 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  className="text-white font-semibold px-8 sm:px-10 py-4 sm:py-6 text-lg sm:text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
                     boxShadow: '0 0 20px rgba(37,211,102,0.4)'
                   }}
                   size="lg"
                 >
-                  <MessageSquare className="w-6 h-6 mr-3" />
+                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                   <span className="relative z-10">Falar com Especialista</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid grid-cols-3 gap-4 sm:gap-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-2">5000+</div>
-                  <div className="text-gray-300">Profissionais Certificados</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-1 sm:mb-2">5000+</div>
+                  <div className="text-gray-300 text-sm sm:text-base">Profissionais Certificados</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">98%</div>
-                  <div className="text-gray-300">Satisfação dos Alunos</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1 sm:mb-2">98%</div>
+                  <div className="text-gray-300 text-sm sm:text-base">Satisfação dos Alunos</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-400 mb-2">15+</div>
-                  <div className="text-gray-300">Anos de Experiência</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1 sm:mb-2">15+</div>
+                  <div className="text-gray-300 text-sm sm:text-base">Anos de Experiência</div>
                 </div>
               </div>
             </div>
 
             {/* Video Content */}
-            <div className="relative">
+            <div className="relative order-1 lg:order-2">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl" style={{ boxShadow: '0 0 50px rgba(79, 195, 247, 0.3)' }}>
                 <iframe
                   src="https://player.vimeo.com/video/956581145?h=0&title=0&byline=0&portrait=0&autoplay=1&muted=1&loop=1"
@@ -391,80 +363,77 @@ const B2CPage = () => {
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="mb-20">
-          <Separator className="bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-30" />
-        </div>
+        <SectionSeparator variant="blue" />
 
         {/* Seção Copy Persuasiva */}
-        <div className="py-20 mb-20">
+        <div className="py-16 sm:py-20 mb-16 sm:mb-20">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
               Por que escolher a 
               <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)' }}>
                 {" "}Educa Nextest?
               </span>
             </h2>
-            <p className="text-xl text-gray-300 mb-16 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-300 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed">
               Somos a única plataforma que oferece ensino técnico certificado pelos maiores fabricantes do mercado, 
               com metodologia prática que garante sua inserção imediata no mercado de trabalho.
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
               <Card className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-blue-400 transition-all duration-300 group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Award className="w-8 h-8 text-white" />
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Award className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Certificação Reconhecida</h3>
-                  <p className="text-gray-300">Certificados validados pelos principais fabricantes do setor de telecomunicações.</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Certificação Reconhecida</h3>
+                  <p className="text-gray-300 text-sm sm:text-base">Certificados validados pelos principais fabricantes do setor de telecomunicações.</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-green-400 transition-all duration-300 group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Users className="w-8 h-8 text-white" />
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Professores Especialistas</h3>
-                  <p className="text-gray-300">Aprenda com profissionais que atuam diretamente no mercado há mais de 15 anos.</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Professores Especialistas</h3>
+                  <p className="text-gray-300 text-sm sm:text-base">Aprenda com profissionais que atuam diretamente no mercado há mais de 15 anos.</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-purple-400 transition-all duration-300 group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <BookOpen className="w-8 h-8 text-white" />
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Conteúdo Prático</h3>
-                  <p className="text-gray-300">Metodologia hands-on com casos reais do mercado de telecomunicações.</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Conteúdo Prático</h3>
+                  <p className="text-gray-300 text-sm sm:text-base">Metodologia hands-on com casos reais do mercado de telecomunicações.</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-orange-400 transition-all duration-300 group">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <TrendingUp className="w-8 h-8 text-white" />
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Crescimento Garantido</h3>
-                  <p className="text-gray-300">Nossos alunos reportam aumento médio de 35% na remuneração após os cursos.</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Crescimento Garantido</h3>
+                  <p className="text-gray-300 text-sm sm:text-base">Nossos alunos reportam aumento médio de 35% na remuneração após os cursos.</p>
                 </CardContent>
               </Card>
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-3xl p-12 border border-gray-600">
-              <h3 className="text-3xl font-bold text-white mb-6">
+            <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-3xl p-8 sm:p-12 border border-gray-600">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
                 Cursos certificados pelos maiores fabricantes do setor
               </h3>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto">
                 Invista no seu futuro profissional com a educação de qualidade que o mercado reconhece e valoriza. 
                 Seja um especialista requisitado pelas principais empresas de telecomunicações.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
                 <Button 
                   onClick={scrollToCourses}
-                  className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  className="text-white font-semibold px-10 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
                     boxShadow: '0 0 25px rgba(96,171,75,0.4)'
@@ -476,14 +445,14 @@ const B2CPage = () => {
                 </Button>
                 <Button 
                   onClick={handleWhatsAppClick}
-                  className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  className="text-white font-semibold px-10 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
                     boxShadow: '0 0 20px rgba(37,211,102,0.4)'
                   }}
                   size="lg"
                 >
-                  <MessageSquare className="w-6 h-6 mr-3" />
+                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                   <span className="relative z-10">Falar com Especialista</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
@@ -492,45 +461,42 @@ const B2CPage = () => {
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="mb-20">
-          <Separator className="bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-30" />
-        </div>
+        <SectionSeparator variant="green" />
 
         {/* Seção de Depoimentos */}
-        <div className="py-20 mb-20">
+        <div className="py-16 sm:py-20 mb-16 sm:mb-20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-4 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4 text-center">
               O que nossos alunos dizem
             </h2>
-            <p className="text-xl text-gray-300 text-center mb-16">
+            <p className="text-lg sm:text-xl text-gray-300 text-center mb-12 sm:mb-16">
               Histórias reais de transformação profissional
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {testimonials.map((testimonial) => (
                 <Card key={testimonial.id} className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-blue-400 transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="flex items-center mb-6">
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="flex items-center mb-4 sm:mb-6">
                       <img 
                         src={testimonial.avatar} 
                         alt={testimonial.name}
-                        className="w-16 h-16 rounded-full mr-4 object-cover"
+                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-full mr-3 sm:mr-4 object-cover"
                       />
                       <div>
-                        <h4 className="text-white font-semibold text-lg">{testimonial.name}</h4>
-                        <p className="text-gray-400 text-sm">{testimonial.role}</p>
-                        <p className="text-blue-400 text-sm">{testimonial.company}</p>
+                        <h4 className="text-white font-semibold text-base sm:text-lg">{testimonial.name}</h4>
+                        <p className="text-gray-400 text-xs sm:text-sm">{testimonial.role}</p>
+                        <p className="text-blue-400 text-xs sm:text-sm">{testimonial.company}</p>
                       </div>
                     </div>
                     
-                    <div className="flex mb-4">
+                    <div className="flex mb-3 sm:mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                        <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current" />
                       ))}
                     </div>
                     
-                    <p className="text-gray-300 leading-relaxed italic">
+                    <p className="text-gray-300 leading-relaxed italic text-sm sm:text-base">
                       "{testimonial.content}"
                     </p>
                   </CardContent>
@@ -540,19 +506,16 @@ const B2CPage = () => {
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="mb-20">
-          <Separator className="bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-30" />
-        </div>
+        <SectionSeparator variant="purple" />
 
         {/* Filtros e Busca */}
-        <div id="cursos" className="mb-12">
-          <div className="flex flex-col lg:flex-row gap-6 items-center justify-center max-w-md mx-auto">
+        <div id="cursos" className="mb-8 sm:mb-12">
+          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 items-center justify-center max-w-md mx-auto">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button 
                   variant="outline" 
-                  className="w-full bg-gray-800 bg-opacity-50 border border-gray-600 text-white hover:bg-gray-700 hover:bg-opacity-50"
+                  className="w-full bg-gray-800 bg-opacity-50 border border-gray-600 text-white hover:bg-gray-700 hover:bg-opacity-50 text-sm sm:text-base"
                 >
                   {selectedCategory}
                   <ChevronDown className="ml-2 w-4 h-4" />
@@ -567,15 +530,15 @@ const B2CPage = () => {
                       placeholder="Buscar cursos..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-10 bg-gray-700 bg-opacity-50 border border-gray-600 text-white placeholder-gray-400"
+                      className="pl-10 bg-gray-700 bg-opacity-50 border border-gray-600 text-white placeholder-gray-400 text-sm"
                     />
                   </div>
-                  <Separator className="my-2 bg-gray-600" />
+                  <SectionSeparator variant="cyan" className="my-2 bg-gray-600" />
                   {categories.map((category) => (
                     <DropdownMenuItem 
                       key={category} 
                       onClick={() => setSelectedCategory(category)}
-                      className="text-white hover:bg-gray-700 cursor-pointer"
+                      className="text-white hover:bg-gray-700 cursor-pointer text-sm"
                     >
                       {category}
                     </DropdownMenuItem>
@@ -587,47 +550,47 @@ const B2CPage = () => {
         </div>
 
         {/* Catálogo de Cursos - Layout Netflix Otimizado */}
-        <div className="mb-20">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+        <div className="mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8 sm:mb-12 text-center">
             Nossos Cursos ({filteredCourses.length})
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-6">
             {filteredCourses.map((course) => (
               <div key={course.id} className="group cursor-pointer flex flex-col">
-                {/* Course Image/Cover - Fixed aspect ratio */}
-                <div className="relative mb-4 overflow-hidden rounded-lg bg-gray-800 flex-shrink-0" style={{ aspectRatio: '3/4', height: '300px' }}>
+                {/* Course Image/Cover */}
+                <div className="relative mb-3 sm:mb-4 overflow-hidden rounded-lg bg-gray-800 flex-shrink-0" style={{ aspectRatio: '3/4', height: '240px' }}>
                   <img 
                     src={course.image} 
                     alt={course.name}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                    <Play className="w-16 h-16 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <Play className="w-12 h-12 sm:w-16 sm:h-16 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   
                   {/* Category Badge */}
                   <Badge 
-                    className="absolute top-3 left-3 text-xs text-white border-0"
+                    className="absolute top-2 left-2 text-xs text-white border-0"
                     style={{ backgroundColor: '#60AB4B' }}
                   >
                     {course.category}
                   </Badge>
                 </div>
 
-                {/* Course Info - Fixed height container */}
-                <div className="flex flex-col justify-between h-32">
+                {/* Course Info */}
+                <div className="flex flex-col justify-between h-28 sm:h-32">
                   <div className="flex-grow">
-                    <h3 className="text-white font-semibold text-sm line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight mb-2">
+                    <h3 className="text-white font-semibold text-xs sm:text-sm line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight mb-1 sm:mb-2">
                       {course.name}
                     </h3>
                     
-                    <div className="flex items-center text-gray-300 text-xs mb-2">
+                    <div className="flex items-center text-gray-300 text-xs mb-1 sm:mb-2">
                       <Clock className="w-3 h-3 mr-1 flex-shrink-0" />
                       <span>{course.duration}</span>
                     </div>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-1 sm:space-y-2">
                     {/* Pricing */}
                     <div className="space-y-1">
                       {course.originalPrice !== course.price && (
@@ -635,7 +598,7 @@ const B2CPage = () => {
                           {course.originalPrice}
                         </div>
                       )}
-                      <div className="font-bold text-green-400 text-sm">
+                      <div className="font-bold text-green-400 text-xs sm:text-sm">
                         {course.price}
                       </div>
                     </div>
@@ -643,7 +606,7 @@ const B2CPage = () => {
                     {/* Buy Button */}
                     <Button 
                       onClick={() => handleBuyNow(course.checkoutUrl)}
-                      className="w-full text-white font-semibold text-xs py-2 hover:scale-105 transition-all duration-300 relative overflow-hidden group h-8"
+                      className="w-full text-white font-semibold text-xs py-2 hover:scale-105 transition-all duration-300 relative overflow-hidden group h-7 sm:h-8"
                       style={{
                         background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
                         boxShadow: '0 0 10px rgba(96,171,75,0.3)'
@@ -660,39 +623,36 @@ const B2CPage = () => {
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="mb-20">
-          <Separator className="bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-30" />
-        </div>
+        <SectionSeparator variant="cyan" />
 
         {/* Seção FAQ */}
-        <div className="py-20 mb-20">
+        <div className="py-16 sm:py-20 mb-16 sm:mb-20">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-4 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4 text-center">
               Perguntas Frequentes
             </h2>
-            <p className="text-xl text-gray-300 text-center mb-16">
+            <p className="text-lg sm:text-xl text-gray-300 text-center mb-12 sm:mb-16">
               Tire suas dúvidas sobre nossos cursos
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {faqs.map((faq, index) => (
                 <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-blue-400 transition-all duration-300">
                   <CardContent className="p-0">
                     <button
                       onClick={() => toggleFAQ(index)}
-                      className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-700 hover:bg-opacity-30 transition-colors"
+                      className="w-full p-4 sm:p-6 text-left flex items-center justify-between hover:bg-gray-700 hover:bg-opacity-30 transition-colors"
                     >
-                      <h3 className="text-white font-semibold text-lg pr-4">{faq.question}</h3>
+                      <h3 className="text-white font-semibold text-base sm:text-lg pr-4">{faq.question}</h3>
                       {openFAQ === index ? (
-                        <Minus className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                        <Minus className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0" />
                       ) : (
-                        <Plus className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 flex-shrink-0" />
                       )}
                     </button>
                     {openFAQ === index && (
-                      <div className="px-6 pb-6">
-                        <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                      <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                        <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{faq.answer}</p>
                       </div>
                     )}
                   </CardContent>
@@ -700,18 +660,18 @@ const B2CPage = () => {
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <p className="text-gray-300 mb-6">Ainda tem dúvidas? Entre em contato conosco!</p>
+            <div className="text-center mt-8 sm:mt-12">
+              <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">Ainda tem dúvidas? Entre em contato conosco!</p>
               <Button 
                 onClick={handleWhatsAppClick}
-                className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                className="text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                 style={{
                   background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
                   boxShadow: '0 0 20px rgba(37,211,102,0.4)'
                 }}
                 size="lg"
               >
-                <MessageSquare className="w-5 h-5 mr-2" />
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 <span className="relative z-10">Falar no WhatsApp</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </Button>
@@ -720,75 +680,9 @@ const B2CPage = () => {
         </div>
       </div>
 
-      {/* Rodapé Completo */}
-      <footer style={{ backgroundColor: '#102A3F' }}>
-        <div className="container mx-auto px-6 py-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {/* Logo e Descrição */}
-            <div className="lg:col-span-2">
-              <img 
-                src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" 
-                alt="Educa Nextest" 
-                className="h-16 mb-6"
-              />
-              <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
-                Especializada em educação técnica para telecomunicações, oferecemos cursos certificados pelos principais fabricantes do setor.
-              </p>
-              <div className="flex space-x-4">
-                <Button 
-                  onClick={handleWhatsAppClick}
-                  className="text-white hover:scale-105 transition-all duration-300"
-                  style={{
-                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                  }}
-                  size="lg"
-                >
-                  <MessageSquare className="w-5 h-5 mr-2" />
-                  WhatsApp
-                </Button>
-              </div>
-            </div>
-
-            {/* Links Rápidos */}
-            <div>
-              <h3 className="text-white font-semibold text-xl mb-6">Links Rápidos</h3>
-              <ul className="space-y-4">
-                <li><button onClick={() => navigate('/')} className="text-gray-300 hover:text-white transition-colors">Início</button></li>
-                <li><button onClick={() => navigate('/empresas')} className="text-gray-300 hover:text-white transition-colors">Para Empresas</button></li>
-                <li><button className="text-gray-300 hover:text-white transition-colors">Sobre Nós</button></li>
-                <li><button className="text-gray-300 hover:text-white transition-colors">Blog</button></li>
-                <li><button className="text-gray-300 hover:text-white transition-colors">Contato</button></li>
-              </ul>
-            </div>
-
-            {/* Cursos Populares */}
-            <div>
-              <h3 className="text-white font-semibold text-xl mb-6">Cursos Populares</h3>
-              <ul className="space-y-4">
-                <li><button className="text-gray-300 hover:text-white transition-colors text-left">Redes 5G</button></li>
-                <li><button className="text-gray-300 hover:text-white transition-colors text-left">OTDR Avançado</button></li>
-                <li><button className="text-gray-300 hover:text-white transition-colors text-left">Redes DWDM</button></li>
-                <li><button className="text-gray-300 hover:text-white transition-colors text-left">WiFi Pro</button></li>
-                <li><button className="text-gray-300 hover:text-white transition-colors text-left">Mikrotik</button></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom Footer */}
-          <div className="border-t border-gray-700 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 mb-4 md:mb-0">
-                © 2024 Educa Nextest. Todos os direitos reservados.
-              </p>
-              <div className="flex space-x-6">
-                <button className="text-gray-400 hover:text-white transition-colors">Política de Privacidade</button>
-                <button className="text-gray-400 hover:text-white transition-colors">Termos de Uso</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+      {/* Footer */}
+      <Footer onWhatsAppClick={handleWhatsAppClick} />
+    </BackgroundWrapper>
   );
 };
 
