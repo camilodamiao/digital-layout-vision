@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,7 +14,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden" style={{
-      backgroundColor: '#102A3F'
+      background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 25%, #0D1B2A 50%, #102A3F 75%, #0A1019 100%)'
     }}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -98,11 +97,13 @@ const Index = () => {
                 </div>
               </div>
               
-              <Button className="w-full text-white font-semibold text-lg py-4 group-hover:translate-y-[-2px] transition-all duration-300" style={{
-              backgroundColor: '#60AB4B'
+              <Button className="w-full text-white font-semibold text-lg py-4 group-hover:translate-y-[-2px] transition-all duration-300 relative overflow-hidden group" style={{
+              background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
+              boxShadow: '0 0 15px rgba(96,171,75,0.3)'
             }} size="lg">
-                Ver Nossos Cursos
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="relative z-10">Ver Nossos Cursos</span>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </Button>
             </CardContent>
           </Card>
@@ -152,11 +153,13 @@ const Index = () => {
                 </div>
               </div>
               
-              <Button className="w-full text-white font-semibold text-lg py-4 group-hover:translate-y-[-2px] transition-all duration-300" style={{
-              backgroundColor: '#4FC3F7'
+              <Button className="w-full text-white font-semibold text-lg py-4 group-hover:translate-y-[-2px] transition-all duration-300 relative overflow-hidden group" style={{
+              background: 'linear-gradient(135deg, #4FC3F7 0%, #60AB4B 100%)',
+              boxShadow: '0 0 15px rgba(79,195,247,0.3)'
             }} size="lg">
-                Falar com Especialista
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="relative z-10">Falar com Especialista</span>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </Button>
             </CardContent>
           </Card>
@@ -171,7 +174,7 @@ const Index = () => {
       </div>
 
       {/* Footer */}
-      <footer className="relative z-10 bg-gray-900 bg-opacity-90 mt-auto">
+      <footer className="relative z-10 mt-auto" style={{ backgroundColor: '#102A3F' }}>
         <div className="container mx-auto px-6 py-8">
           <div className="text-center">
             <p className="text-gray-400">

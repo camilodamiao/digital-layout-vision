@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -90,9 +89,9 @@ const B2CPage = () => {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#102A3F' }}>
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 25%, #0D1B2A 50%, #102A3F 75%, #0A1019 100%)' }}>
       {/* Header */}
-      <header className="relative z-10 py-6 px-6">
+      <header className="relative z-10 py-6 px-6" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 50%, #0D1B2A 100%)' }}>
         <div className="container mx-auto flex items-center justify-between">
           <Button 
             variant="ghost" 
@@ -109,11 +108,15 @@ const B2CPage = () => {
           />
           <Button 
             onClick={handleWhatsAppClick}
-            variant="outline"
-            className="text-white border-white hover:bg-white hover:text-gray-900"
+            className="text-white font-semibold hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+            style={{
+              background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+              boxShadow: '0 0 15px rgba(37,211,102,0.3)'
+            }}
           >
             <MessageSquare className="w-4 h-4 mr-2" />
-            Dúvidas
+            <span className="relative z-10">Dúvidas</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
           </Button>
         </div>
       </header>
@@ -132,20 +135,28 @@ const B2CPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300"
-              style={{ backgroundColor: '#60AB4B' }}
+              className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+              style={{
+                background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
+                boxShadow: '0 0 20px rgba(96,171,75,0.3)'
+              }}
               size="lg"
             >
-              Ver Todos os Cursos
+              <span className="relative z-10">Ver Todos os Cursos</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </Button>
             <Button 
               onClick={handleWhatsAppClick}
-              variant="outline"
-              className="text-white border-white hover:bg-white hover:text-gray-900 font-semibold px-8 py-4 text-lg"
+              className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+              style={{
+                background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                boxShadow: '0 0 15px rgba(37,211,102,0.3)'
+              }}
               size="lg"
             >
               <MessageSquare className="w-5 h-5 mr-2" />
-              Falar com Especialista
+              <span className="relative z-10">Falar com Especialista</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </Button>
           </div>
         </div>
@@ -162,13 +173,19 @@ const B2CPage = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`${
                     selectedCategory === category 
-                      ? 'text-white' 
+                      ? 'text-white relative overflow-hidden group' 
                       : 'text-gray-300 border-gray-600 hover:bg-white hover:bg-opacity-10'
                   }`}
-                  style={selectedCategory === category ? { backgroundColor: '#60AB4B' } : {}}
+                  style={selectedCategory === category ? {
+                    background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
+                    boxShadow: '0 0 15px rgba(96,171,75,0.3)'
+                  } : {}}
                 >
                   <Filter className="w-4 h-4 mr-2" />
-                  {category}
+                  <span className="relative z-10">{category}</span>
+                  {selectedCategory === category && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  )}
                 </Button>
               ))}
             </div>
@@ -219,11 +236,15 @@ const B2CPage = () => {
                   </p>
                   <Button 
                     onClick={() => handleBuyNow(course.checkoutUrl)}
-                    className="w-full text-white font-semibold hover:scale-105 transition-all duration-300"
-                    style={{ backgroundColor: '#60AB4B' }}
+                    className="w-full text-white font-semibold hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                    style={{
+                      background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
+                      boxShadow: '0 0 15px rgba(96,171,75,0.3)'
+                    }}
                     size="lg"
                   >
-                    Comprar Agora
+                    <span className="relative z-10">Comprar Agora</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                   </Button>
                 </CardContent>
               </Card>
@@ -270,21 +291,29 @@ const B2CPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300"
-              style={{ backgroundColor: '#60AB4B' }}
+              className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+              style={{
+                background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
+                boxShadow: '0 0 20px rgba(96,171,75,0.3)'
+              }}
               size="lg"
             >
               <Award className="w-6 h-6 mr-3" />
-              Ver Certificações
+              <span className="relative z-10">Ver Certificações</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </Button>
             <Button 
               onClick={handleWhatsAppClick}
-              variant="outline"
-              className="text-white border-white hover:bg-white hover:text-gray-900 font-semibold px-12 py-6 text-xl"
+              className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+              style={{
+                background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                boxShadow: '0 0 15px rgba(37,211,102,0.3)'
+              }}
               size="lg"
             >
               <MessageSquare className="w-6 h-6 mr-3" />
-              Falar com Especialista
+              <span className="relative z-10">Falar com Especialista</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </Button>
           </div>
         </div>

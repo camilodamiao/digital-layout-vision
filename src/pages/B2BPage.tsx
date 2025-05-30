@@ -164,7 +164,7 @@ const B2BPage = () => {
       </div>
 
       {/* Static Header */}
-      <header className="relative z-50 shadow-lg border-b border-cyan-400/20" style={{ backgroundColor: '#102A3F' }}>
+      <header className="relative z-50 shadow-lg border-b border-cyan-400/20" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 50%, #0D1B2A 100%)' }}>
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -227,7 +227,7 @@ const B2BPage = () => {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="lg:hidden mt-4 bg-gray-800/90 backdrop-blur-sm rounded-lg border border-cyan-400/20 shadow-xl animate-in slide-in-from-top-2 duration-200" style={{ background: 'linear-gradient(135deg, rgba(16,42,63,0.95) 0%, rgba(10,31,46,0.95) 100%)' }}>
+            <div className="lg:hidden mt-4 bg-gray-800/90 backdrop-blur-sm rounded-lg border border-cyan-400/20 shadow-xl animate-in slide-in-from-top-2 duration-200" style={{ background: 'linear-gradient(135deg, rgba(10,16,25,0.95) 0%, rgba(16,42,63,0.95) 100%)' }}>
               <nav className="p-4 space-y-3">
                 {menuItems.map((item, index) => (
                   <button
@@ -261,11 +261,16 @@ const B2BPage = () => {
       <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
         <Button
           onClick={handleWhatsAppClick}
-          className="text-white font-semibold px-4 py-3 md:px-6 md:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm md:text-base relative overflow-hidden group bg-green-600 hover:bg-green-700"
+          className="text-white font-semibold px-4 py-3 md:px-6 md:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm md:text-base relative overflow-hidden group"
+          style={{
+            background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+            boxShadow: '0 0 20px rgba(37,211,102,0.4)'
+          }}
           size="lg"
         >
           <MessageSquare className="w-4 h-4 md:w-5 md:h-5 mr-2" />
           <span className="relative z-10">Falar Agora</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
         </Button>
       </div>
 
@@ -297,11 +302,16 @@ const B2BPage = () => {
 
               <Button
                 onClick={handleWhatsAppClick}
-                className="text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg hover:scale-105 transition-all duration-300 w-full md:w-auto relative overflow-hidden group bg-green-600 hover:bg-green-700"
+                className="text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg hover:scale-105 transition-all duration-300 w-full md:w-auto relative overflow-hidden group"
+                style={{
+                  background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                  boxShadow: '0 0 20px rgba(37,211,102,0.3)'
+                }}
                 size="lg"
               >
                 <MessageSquare className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 <span className="relative z-10">FALAR COM ESPECIALISTA</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </Button>
             </div>
             
@@ -538,17 +548,25 @@ const B2BPage = () => {
           </p>
           <Button
             onClick={handleWhatsAppClick}
-            className="text-white font-semibold px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl hover:scale-105 transition-all duration-300 w-full md:w-auto relative overflow-hidden group bg-green-600 hover:bg-green-700"
+            className="text-white font-semibold px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl hover:scale-105 transition-all duration-300 w-full md:w-auto relative overflow-hidden group"
+            style={{
+              background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+              boxShadow: '0 0 20px rgba(37,211,102,0.3)'
+            }}
             size="lg"
           >
             <MessageSquare className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3" />
             <span className="relative z-10">Conversar com Especialista Agora</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
           </Button>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-blue-950/90 to-slate-900/90 backdrop-blur-sm mt-10 md:mt-20 border-t border-cyan-400/20" style={{ boxShadow: '0 -10px 30px rgba(79,195,247,0.1)' }}>
+      <footer className="backdrop-blur-sm mt-10 md:mt-20 border-t border-cyan-400/20" style={{ 
+        backgroundColor: '#102A3F',
+        boxShadow: '0 -10px 30px rgba(79,195,247,0.1)' 
+      }}>
         <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {/* Logo e Descrição */}
