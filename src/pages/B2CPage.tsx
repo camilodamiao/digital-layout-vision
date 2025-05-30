@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { 
   ArrowLeft, 
   MessageSquare, 
@@ -24,7 +24,8 @@ import {
   BookOpen,
   TrendingUp,
   Plus,
-  Minus
+  Minus,
+  ChevronDown
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -213,7 +214,7 @@ const B2CPage = () => {
       role: "Técnica em Redes",
       company: "Vivo",
       content: "A qualidade do ensino é excepcional. Os instrutores são experts no mercado e o conteúdo é sempre atualizado com as últimas tecnologias. Recomendo para todos os profissionais da área.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
       rating: 5
     },
     {
@@ -267,6 +268,13 @@ const B2CPage = () => {
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const scrollToCourses = () => {
+    const coursesSection = document.getElementById('cursos');
+    if (coursesSection) {
+      coursesSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -323,6 +331,7 @@ const B2CPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-6 mb-12">
                 <Button 
+                  onClick={scrollToCourses}
                   className="text-white font-semibold px-10 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
@@ -378,9 +387,13 @@ const B2CPage = () => {
                   className="w-full h-full"
                 ></iframe>
               </div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-400 to-green-400 rounded-2xl opacity-20 blur-xl animate-pulse"></div>
             </div>
           </div>
+        </div>
+
+        {/* Separator */}
+        <div className="mb-20">
+          <Separator className="bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-30" />
         </div>
 
         {/* Seção Copy Persuasiva */}
@@ -450,6 +463,7 @@ const B2CPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
+                  onClick={scrollToCourses}
                   className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
@@ -476,6 +490,11 @@ const B2CPage = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Separator */}
+        <div className="mb-20">
+          <Separator className="bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-30" />
         </div>
 
         {/* Seção de Depoimentos */}
@@ -521,47 +540,62 @@ const B2CPage = () => {
           </div>
         </div>
 
-        {/* Filtros e Busca */}
-        <div className="mb-12">
-          <div className="flex flex-col lg:flex-row gap-6 items-center justify-between max-w-2xl mx-auto">
-            <div className="w-full">
-              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger className="w-full bg-gray-800 bg-opacity-50 border border-gray-600 text-white">
-                  <SelectValue placeholder="Selecione uma categoria" />
-                </SelectTrigger>
-                <SelectContent className="bg-gray-800 border-gray-600">
-                  {categories.map((category) => (
-                    <SelectItem key={category} value={category} className="text-white hover:bg-gray-700">
-                      {category}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+        {/* Separator */}
+        <div className="mb-20">
+          <Separator className="bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-30" />
+        </div>
 
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-              <Input
-                type="text"
-                placeholder="Buscar cursos..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-gray-800 bg-opacity-50 border border-gray-600 text-white placeholder-gray-400"
-              />
-            </div>
+        {/* Filtros e Busca */}
+        <div id="cursos" className="mb-12">
+          <div className="flex flex-col lg:flex-row gap-6 items-center justify-center max-w-md mx-auto">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="w-full bg-gray-800 bg-opacity-50 border border-gray-600 text-white hover:bg-gray-700 hover:bg-opacity-50"
+                >
+                  {selectedCategory}
+                  <ChevronDown className="ml-2 w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 bg-gray-800 border-gray-600 z-50">
+                <div className="p-2">
+                  <div className="relative mb-2">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <Input
+                      type="text"
+                      placeholder="Buscar cursos..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10 bg-gray-700 bg-opacity-50 border border-gray-600 text-white placeholder-gray-400"
+                    />
+                  </div>
+                  <Separator className="my-2 bg-gray-600" />
+                  {categories.map((category) => (
+                    <DropdownMenuItem 
+                      key={category} 
+                      onClick={() => setSelectedCategory(category)}
+                      className="text-white hover:bg-gray-700 cursor-pointer"
+                    >
+                      {category}
+                    </DropdownMenuItem>
+                  ))}
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
 
-        {/* Catálogo de Cursos - Layout Netflix */}
+        {/* Catálogo de Cursos - Layout Netflix Otimizado */}
         <div className="mb-20">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Nossos Cursos ({filteredCourses.length})
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
             {filteredCourses.map((course) => (
-              <div key={course.id} className="group cursor-pointer">
-                {/* Course Image/Cover - Vertical com aspect ratio fixo */}
-                <div className="relative mb-4 overflow-hidden rounded-lg bg-gray-800" style={{ aspectRatio: '3/4', minHeight: '300px' }}>
+              <div key={course.id} className="group cursor-pointer flex flex-col">
+                {/* Course Image/Cover - Fixed aspect ratio */}
+                <div className="relative mb-4 overflow-hidden rounded-lg bg-gray-800 flex-shrink-0" style={{ aspectRatio: '3/4', height: '300px' }}>
                   <img 
                     src={course.image} 
                     alt={course.name}
@@ -580,20 +614,20 @@ const B2CPage = () => {
                   </Badge>
                 </div>
 
-                {/* Course Info - altura fixa para alinhamento */}
-                <div className="space-y-3 min-h-[140px] flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-white font-semibold text-sm line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight min-h-[40px]">
+                {/* Course Info - Fixed height container */}
+                <div className="flex flex-col justify-between h-32">
+                  <div className="flex-grow">
+                    <h3 className="text-white font-semibold text-sm line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight mb-2">
                       {course.name}
                     </h3>
                     
-                    <div className="flex items-center text-gray-300 text-xs mt-2">
+                    <div className="flex items-center text-gray-300 text-xs mb-2">
                       <Clock className="w-3 h-3 mr-1 flex-shrink-0" />
                       <span>{course.duration}</span>
                     </div>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {/* Pricing */}
                     <div className="space-y-1">
                       {course.originalPrice !== course.price && (
@@ -624,6 +658,11 @@ const B2CPage = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Separator */}
+        <div className="mb-20">
+          <Separator className="bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-30" />
         </div>
 
         {/* Seção FAQ */}
@@ -682,7 +721,7 @@ const B2CPage = () => {
       </div>
 
       {/* Rodapé Completo */}
-      <footer style={{ backgroundColor: '#0A1019' }}>
+      <footer style={{ backgroundColor: '#102A3F' }}>
         <div className="container mx-auto px-6 py-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Logo e Descrição */}
