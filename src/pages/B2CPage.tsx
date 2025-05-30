@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { 
   Select,
   SelectContent,
@@ -10,13 +11,28 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, MessageSquare, Clock, Search, Play } from "lucide-react";
+import { 
+  ArrowLeft, 
+  MessageSquare, 
+  Clock, 
+  Search, 
+  Play,
+  CheckCircle,
+  Star,
+  Users,
+  Award,
+  BookOpen,
+  TrendingUp,
+  Plus,
+  Minus
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const B2CPage = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [searchTerm, setSearchTerm] = useState("");
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const whatsappNumber = "5511999999999";
   const whatsappMessage = "Olá! Tenho dúvidas sobre os cursos da Educa Nextest.";
@@ -181,6 +197,59 @@ const B2CPage = () => {
     },
   ];
 
+  const testimonials = [
+    {
+      id: 1,
+      name: "Carlos Silva",
+      role: "Engenheiro de Telecomunicações",
+      company: "TeleBrasil",
+      content: "Os cursos da Educa Nextest transformaram minha carreira. O conhecimento prático em DWDM me permitiu assumir projetos mais complexos e aumentar minha remuneração em 40%.",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      rating: 5
+    },
+    {
+      id: 2,
+      name: "Ana Paula Costa",
+      role: "Técnica em Redes",
+      company: "Vivo",
+      content: "A qualidade do ensino é excepcional. Os instrutores são experts no mercado e o conteúdo é sempre atualizado com as últimas tecnologias. Recomendo para todos os profissionais da área.",
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
+      rating: 5
+    },
+    {
+      id: 3,
+      name: "Roberto Oliveira",
+      role: "Supervisor de Campo",
+      company: "Oi Fibra",
+      content: "O curso de OTDR me deu a confiança que precisava para trabalhar com equipamentos avançados. Hoje sou referência na minha equipe e isso refletiu diretamente na minha promoção.",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      rating: 5
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Como funciona o acesso aos cursos?",
+      answer: "Após a compra, você recebe imediatamente as credenciais de acesso por email. Os cursos ficam disponíveis 24/7 na nossa plataforma, permitindo que você estude no seu próprio ritmo."
+    },
+    {
+      question: "Os cursos têm certificado?",
+      answer: "Sim! Todos os nossos cursos oferecem certificado de conclusão reconhecido pelos principais fabricantes do setor. O certificado é emitido automaticamente após a conclusão do curso."
+    },
+    {
+      question: "Posso tirar dúvidas durante o curso?",
+      answer: "Claro! Oferecemos suporte completo através do WhatsApp e também temos fóruns de discussão onde você pode interagir com outros alunos e instrutores."
+    },
+    {
+      question: "Qual é a validade do acesso?",
+      answer: "O acesso aos cursos gravados é vitalício. Você poderá revisar o conteúdo quantas vezes quiser. Para a plataforma educacional, o acesso varia conforme o plano escolhido (1, 6 ou 12 meses)."
+    },
+    {
+      question: "Preciso de equipamentos específicos?",
+      answer: "Não! Nossos cursos são 100% online e você só precisa de um computador ou celular com internet. Todo o material necessário está incluído nas aulas."
+    }
+  ];
+
   const filteredCourses = courses.filter(course => {
     const matchesCategory = selectedCategory === "Todos" || course.category === selectedCategory;
     const matchesSearch = course.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -194,6 +263,10 @@ const B2CPage = () => {
 
   const handleBuyNow = (checkoutUrl: string) => {
     window.open(checkoutUrl, '_blank');
+  };
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
   };
 
   return (
@@ -229,52 +302,72 @@ const B2CPage = () => {
         </div>
       </header>
 
-      <div className="relative z-10 container mx-auto px-6 py-12">
-        {/* Hero Section with Video */}
-        <div className="text-center mb-16 max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 container mx-auto px-6">
+        {/* Hero Section Expandida com Video */}
+        <div className="py-20 mb-20 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text Content */}
             <div className="text-left">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Cursos Técnicos em
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
+                Transforme sua
                 <span className="block text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)' }}>
+                  Carreira em
+                </span>
+                <span className="block text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #60AB4B, #4FC3F7)' }}>
                   Telecomunicações
                 </span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Ensino personalizado que impulsiona resultados. Flexibilidade e qualidade de um método inovador.
+              <p className="text-2xl text-gray-300 mb-10 leading-relaxed">
+                Cursos práticos e certificados pelos maiores fabricantes do setor. 
+                <span className="block mt-2 text-green-400 font-semibold">Ensino personalizado que impulsiona resultados.</span>
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-6 mb-12">
                 <Button 
-                  className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  className="text-white font-semibold px-10 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-                    boxShadow: '0 0 20px rgba(96,171,75,0.3)'
+                    boxShadow: '0 0 25px rgba(96,171,75,0.4)'
                   }}
                   size="lg"
                 >
-                  <span className="relative z-10">Ver Todos os Cursos</span>
+                  <span className="relative z-10">Explorar Cursos</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
                 <Button 
                   onClick={handleWhatsAppClick}
-                  className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  className="text-white font-semibold px-10 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                    boxShadow: '0 0 15px rgba(37,211,102,0.3)'
+                    boxShadow: '0 0 20px rgba(37,211,102,0.4)'
                   }}
                   size="lg"
                 >
-                  <MessageSquare className="w-5 h-5 mr-2" />
+                  <MessageSquare className="w-6 h-6 mr-3" />
                   <span className="relative z-10">Falar com Especialista</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-green-400 mb-2">5000+</div>
+                  <div className="text-gray-300">Profissionais Certificados</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-400 mb-2">98%</div>
+                  <div className="text-gray-300">Satisfação dos Alunos</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-cyan-400 mb-2">15+</div>
+                  <div className="text-gray-300">Anos de Experiência</div>
+                </div>
               </div>
             </div>
 
             {/* Video Content */}
             <div className="relative">
-              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
+              <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl" style={{ boxShadow: '0 0 50px rgba(79, 195, 247, 0.3)' }}>
                 <iframe
                   src="https://player.vimeo.com/video/956581145?h=0&title=0&byline=0&portrait=0&autoplay=1&muted=1&loop=1"
                   width="100%"
@@ -285,14 +378,152 @@ const B2CPage = () => {
                   className="w-full h-full"
                 ></iframe>
               </div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-400 to-green-400 rounded-2xl opacity-20 blur-xl animate-pulse"></div>
             </div>
           </div>
         </div>
 
-        {/* Filtros e Busca em Dropdown */}
+        {/* Seção Copy Persuasiva */}
+        <div className="py-20 mb-20">
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+              Por que escolher a 
+              <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)' }}>
+                {" "}Educa Nextest?
+              </span>
+            </h2>
+            <p className="text-xl text-gray-300 mb-16 max-w-4xl mx-auto leading-relaxed">
+              Somos a única plataforma que oferece ensino técnico certificado pelos maiores fabricantes do mercado, 
+              com metodologia prática que garante sua inserção imediata no mercado de trabalho.
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+              <Card className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-blue-400 transition-all duration-300 group">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-4">Certificação Reconhecida</h3>
+                  <p className="text-gray-300">Certificados validados pelos principais fabricantes do setor de telecomunicações.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-green-400 transition-all duration-300 group">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-4">Professores Especialistas</h3>
+                  <p className="text-gray-300">Aprenda com profissionais que atuam diretamente no mercado há mais de 15 anos.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-purple-400 transition-all duration-300 group">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <BookOpen className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-4">Conteúdo Prático</h3>
+                  <p className="text-gray-300">Metodologia hands-on com casos reais do mercado de telecomunicações.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-orange-400 transition-all duration-300 group">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <TrendingUp className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-4">Crescimento Garantido</h3>
+                  <p className="text-gray-300">Nossos alunos reportam aumento médio de 35% na remuneração após os cursos.</p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* CTA Section */}
+            <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-3xl p-12 border border-gray-600">
+              <h3 className="text-3xl font-bold text-white mb-6">
+                Cursos certificados pelos maiores fabricantes do setor
+              </h3>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Invista no seu futuro profissional com a educação de qualidade que o mercado reconhece e valoriza. 
+                Seja um especialista requisitado pelas principais empresas de telecomunicações.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button 
+                  className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  style={{
+                    background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
+                    boxShadow: '0 0 25px rgba(96,171,75,0.4)'
+                  }}
+                  size="lg"
+                >
+                  <span className="relative z-10">Começar Agora</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                </Button>
+                <Button 
+                  onClick={handleWhatsAppClick}
+                  className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                  style={{
+                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                    boxShadow: '0 0 20px rgba(37,211,102,0.4)'
+                  }}
+                  size="lg"
+                >
+                  <MessageSquare className="w-6 h-6 mr-3" />
+                  <span className="relative z-10">Falar com Especialista</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Seção de Depoimentos */}
+        <div className="py-20 mb-20">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4 text-center">
+              O que nossos alunos dizem
+            </h2>
+            <p className="text-xl text-gray-300 text-center mb-16">
+              Histórias reais de transformação profissional
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial) => (
+                <Card key={testimonial.id} className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-blue-400 transition-all duration-300">
+                  <CardContent className="p-8">
+                    <div className="flex items-center mb-6">
+                      <img 
+                        src={testimonial.avatar} 
+                        alt={testimonial.name}
+                        className="w-16 h-16 rounded-full mr-4 object-cover"
+                      />
+                      <div>
+                        <h4 className="text-white font-semibold text-lg">{testimonial.name}</h4>
+                        <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                        <p className="text-blue-400 text-sm">{testimonial.company}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    
+                    <p className="text-gray-300 leading-relaxed italic">
+                      "{testimonial.content}"
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Filtros e Busca */}
         <div className="mb-12">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between max-w-2xl mx-auto">
-            {/* Dropdown com Filtros e Busca */}
             <div className="w-full">
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
                 <SelectTrigger className="w-full bg-gray-800 bg-opacity-50 border border-gray-600 text-white">
@@ -308,7 +539,6 @@ const B2CPage = () => {
               </Select>
             </div>
 
-            {/* Campo de Busca */}
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <Input
@@ -322,16 +552,16 @@ const B2CPage = () => {
           </div>
         </div>
 
-        {/* Catálogo de Cursos - Layout Netflix Vertical */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+        {/* Catálogo de Cursos - Layout Netflix */}
+        <div className="mb-20">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">
             Nossos Cursos ({filteredCourses.length})
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
             {filteredCourses.map((course) => (
               <div key={course.id} className="group cursor-pointer">
-                {/* Course Image/Cover - Vertical */}
-                <div className="relative mb-4 overflow-hidden rounded-lg bg-gray-800" style={{ aspectRatio: '3/4' }}>
+                {/* Course Image/Cover - Vertical com aspect ratio fixo */}
+                <div className="relative mb-4 overflow-hidden rounded-lg bg-gray-800" style={{ aspectRatio: '3/4', minHeight: '300px' }}>
                   <img 
                     src={course.image} 
                     alt={course.name}
@@ -350,91 +580,173 @@ const B2CPage = () => {
                   </Badge>
                 </div>
 
-                {/* Course Info */}
-                <div className="space-y-3">
-                  <h3 className="text-white font-semibold text-sm line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight">
-                    {course.name}
-                  </h3>
-                  
-                  <div className="flex items-center text-gray-300 text-xs">
-                    <Clock className="w-3 h-3 mr-1" />
-                    <span>{course.duration}</span>
-                  </div>
-
-                  {/* Pricing */}
-                  <div className="space-y-1">
-                    {course.originalPrice !== course.price && (
-                      <div className="text-gray-400 text-xs line-through">
-                        {course.originalPrice}
-                      </div>
-                    )}
-                    <div className="font-bold text-green-400 text-sm">
-                      {course.price}
+                {/* Course Info - altura fixa para alinhamento */}
+                <div className="space-y-3 min-h-[140px] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-white font-semibold text-sm line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight min-h-[40px]">
+                      {course.name}
+                    </h3>
+                    
+                    <div className="flex items-center text-gray-300 text-xs mt-2">
+                      <Clock className="w-3 h-3 mr-1 flex-shrink-0" />
+                      <span>{course.duration}</span>
                     </div>
                   </div>
 
-                  {/* Buy Button */}
-                  <Button 
-                    onClick={() => handleBuyNow(course.checkoutUrl)}
-                    className="w-full text-white font-semibold text-xs py-2 hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-                    style={{
-                      background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-                      boxShadow: '0 0 10px rgba(96,171,75,0.3)'
-                    }}
-                    size="sm"
-                  >
-                    <span className="relative z-10">Comprar</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                  </Button>
+                  <div className="space-y-3">
+                    {/* Pricing */}
+                    <div className="space-y-1">
+                      {course.originalPrice !== course.price && (
+                        <div className="text-gray-400 text-xs line-through">
+                          {course.originalPrice}
+                        </div>
+                      )}
+                      <div className="font-bold text-green-400 text-sm">
+                        {course.price}
+                      </div>
+                    </div>
+
+                    {/* Buy Button */}
+                    <Button 
+                      onClick={() => handleBuyNow(course.checkoutUrl)}
+                      className="w-full text-white font-semibold text-xs py-2 hover:scale-105 transition-all duration-300 relative overflow-hidden group h-8"
+                      style={{
+                        background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
+                        boxShadow: '0 0 10px rgba(96,171,75,0.3)'
+                      }}
+                      size="sm"
+                    >
+                      <span className="relative z-10">Comprar</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* CTA Final */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Cursos certificados pelos maiores fabricantes do setor
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Invista no seu futuro profissional com a educação de qualidade que o mercado reconhece e valoriza.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-              style={{
-                background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-                boxShadow: '0 0 20px rgba(96,171,75,0.3)'
-              }}
-              size="lg"
-            >
-              <span className="relative z-10">Ver Todos os Cursos</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-            </Button>
-            <Button 
-              onClick={handleWhatsAppClick}
-              className="text-white font-semibold px-12 py-6 text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-              style={{
-                background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                boxShadow: '0 0 15px rgba(37,211,102,0.3)'
-              }}
-              size="lg"
-            >
-              <MessageSquare className="w-6 h-6 mr-3" />
-              <span className="relative z-10">Falar com Especialista</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-            </Button>
+        {/* Seção FAQ */}
+        <div className="py-20 mb-20">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4 text-center">
+              Perguntas Frequentes
+            </h2>
+            <p className="text-xl text-gray-300 text-center mb-16">
+              Tire suas dúvidas sobre nossos cursos
+            </p>
+
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <Card key={index} className="bg-gray-800 bg-opacity-50 border border-gray-600 hover:border-blue-400 transition-all duration-300">
+                  <CardContent className="p-0">
+                    <button
+                      onClick={() => toggleFAQ(index)}
+                      className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-700 hover:bg-opacity-30 transition-colors"
+                    >
+                      <h3 className="text-white font-semibold text-lg pr-4">{faq.question}</h3>
+                      {openFAQ === index ? (
+                        <Minus className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                      ) : (
+                        <Plus className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                      )}
+                    </button>
+                    {openFAQ === index && (
+                      <div className="px-6 pb-6">
+                        <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-gray-300 mb-6">Ainda tem dúvidas? Entre em contato conosco!</p>
+              <Button 
+                onClick={handleWhatsAppClick}
+                className="text-white font-semibold px-8 py-4 text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                style={{
+                  background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                  boxShadow: '0 0 20px rgba(37,211,102,0.4)'
+                }}
+                size="lg"
+              >
+                <MessageSquare className="w-5 h-5 mr-2" />
+                <span className="relative z-10">Falar no WhatsApp</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 text-center" style={{ backgroundColor: '#102A3F' }}>
-        <div className="container mx-auto">
-          <p className="text-gray-300">
-            © 2024 Educa Nextest. Todos os direitos reservados.
-          </p>
+      {/* Rodapé Completo */}
+      <footer style={{ backgroundColor: '#0A1019' }}>
+        <div className="container mx-auto px-6 py-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {/* Logo e Descrição */}
+            <div className="lg:col-span-2">
+              <img 
+                src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" 
+                alt="Educa Nextest" 
+                className="h-16 mb-6"
+              />
+              <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
+                Especializada em educação técnica para telecomunicações, oferecemos cursos certificados pelos principais fabricantes do setor.
+              </p>
+              <div className="flex space-x-4">
+                <Button 
+                  onClick={handleWhatsAppClick}
+                  className="text-white hover:scale-105 transition-all duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                  }}
+                  size="lg"
+                >
+                  <MessageSquare className="w-5 h-5 mr-2" />
+                  WhatsApp
+                </Button>
+              </div>
+            </div>
+
+            {/* Links Rápidos */}
+            <div>
+              <h3 className="text-white font-semibold text-xl mb-6">Links Rápidos</h3>
+              <ul className="space-y-4">
+                <li><button onClick={() => navigate('/')} className="text-gray-300 hover:text-white transition-colors">Início</button></li>
+                <li><button onClick={() => navigate('/empresas')} className="text-gray-300 hover:text-white transition-colors">Para Empresas</button></li>
+                <li><button className="text-gray-300 hover:text-white transition-colors">Sobre Nós</button></li>
+                <li><button className="text-gray-300 hover:text-white transition-colors">Blog</button></li>
+                <li><button className="text-gray-300 hover:text-white transition-colors">Contato</button></li>
+              </ul>
+            </div>
+
+            {/* Cursos Populares */}
+            <div>
+              <h3 className="text-white font-semibold text-xl mb-6">Cursos Populares</h3>
+              <ul className="space-y-4">
+                <li><button className="text-gray-300 hover:text-white transition-colors text-left">Redes 5G</button></li>
+                <li><button className="text-gray-300 hover:text-white transition-colors text-left">OTDR Avançado</button></li>
+                <li><button className="text-gray-300 hover:text-white transition-colors text-left">Redes DWDM</button></li>
+                <li><button className="text-gray-300 hover:text-white transition-colors text-left">WiFi Pro</button></li>
+                <li><button className="text-gray-300 hover:text-white transition-colors text-left">Mikrotik</button></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t border-gray-700 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 mb-4 md:mb-0">
+                © 2024 Educa Nextest. Todos os direitos reservados.
+              </p>
+              <div className="flex space-x-6">
+                <button className="text-gray-400 hover:text-white transition-colors">Política de Privacidade</button>
+                <button className="text-gray-400 hover:text-white transition-colors">Termos de Uso</button>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
