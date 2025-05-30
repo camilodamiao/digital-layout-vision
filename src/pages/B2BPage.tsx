@@ -205,12 +205,12 @@ const B2BPage = () => {
                 onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')}
                 className="text-white font-semibold px-6 py-3 text-base rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group"
                 style={{
-                  background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-                  boxShadow: '0 0 20px rgba(96,171,75,0.3)'
+                  background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                  boxShadow: '0 0 20px rgba(37,211,102,0.3)'
                 }}
               >
                 <span className="relative z-10">Fazer login →</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </Button>
 
               {/* Mobile Menu Button */}
