@@ -4,15 +4,19 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, MessageSquare, Users, Target, Award, BarChart3, Shield, Clock, CheckCircle, Play, BookOpen, Headphones, Mail, Phone, MapPin, Linkedin, Instagram, Youtube, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 const B2BPage = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const whatsappNumber = "5511999999999"; // Substitua pelo número real
   const whatsappMessage = "Olá! Gostaria de saber mais sobre os treinamentos corporativos da Educa Nextest.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   const handleWhatsAppClick = () => {
     window.open(whatsappUrl, '_blank');
   };
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -22,6 +26,7 @@ const B2BPage = () => {
     }
     setIsMenuOpen(false);
   };
+
   const menuItems = [{
     label: "A Educa",
     action: () => scrollToSection("hero")
@@ -32,9 +37,16 @@ const B2BPage = () => {
     label: "Quem somos",
     action: () => scrollToSection("team")
   }, {
-    label: "Nossos serviços",
+    label: "Nossos benefícios",
     action: () => scrollToSection("benefits")
+  }, {
+    label: "Recursos",
+    action: () => scrollToSection("resources")
+  }, {
+    label: "Depoimentos",
+    action: () => scrollToSection("testimonials")
   }];
+
   const teamMembers = [{
     name: "Camilo Damião",
     role: "Gerente de Produtos",
@@ -72,6 +84,7 @@ const B2BPage = () => {
     role: "Company Owner",
     image: "/lovable-uploads/95032967-a3e2-45dd-bf4e-b86e41707caa.png"
   }];
+  
   const services = [{
     title: "Cursos Personalizados",
     description: "Desenvolvemos cursos sob medida para sua empresa, abrangendo tópicos relevantes como atendimento ao cliente, instalação e manutenção de redes.",
@@ -91,7 +104,9 @@ const B2BPage = () => {
       color: '#60AB4B'
     }} />
   }];
+  
   const platformFeatures = ["Conteúdos Interativos - +200 horas de cursos com vídeos, exercícios e testes interativos para engajamento da equipe.", "Suporte Personalizado - Equipe de especialistas para fornecer orientação e tirar dúvidas.", "Testes Dinâmicos e Seguros - Vários modelos de avaliação com mecanismos \"anti-cola\" para garantir a segurança e assertividade do conhecimento adquirido.", "Acompanhamento de Progresso - Monitoramento do aprendizado e desempenho da sua equipe."];
+  
   const benefits = [{
     title: "+200h de Conteúdo",
     description: "Biblioteca completa com mais de 200 horas de conteúdo especializado em telecomunicações.",
@@ -129,13 +144,15 @@ const B2BPage = () => {
       color: '#4FC3F7'
     }} />
   }];
+  
   const heroFeatures = ["Conteúdos ajustados às necessidades da sua empresa, garantindo resultados práticos e imediatos.", "Cursos certificados e desenvolvidos por especialistas, foco nas tecnologias mais relevantes do mercado.", "Acompanhe em tempo real o progresso e desempenho dos seus colaboradores, com relatórios detalhados de evolução."];
+  
   return <div className="min-h-screen" style={{
     backgroundColor: '#102A3F'
   }}>
       {/* Static Header */}
-      <header className="bg-white shadow-lg">
-        <div className="container mx-auto px-4 md:px-6 py-4 bg-blue-900 bg-[120a3f]">
+      <header className="shadow-lg" style={{ backgroundColor: '#102A3F' }}>
+        <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
@@ -145,51 +162,82 @@ const B2BPage = () => {
             {/* Desktop Navigation Menu - Centered */}
             <nav className="hidden lg:flex items-center justify-center flex-1">
               <div className="flex items-center space-x-8">
-                {menuItems.map((item, index) => <button key={index} onClick={item.action} className="text-gray-700 hover:text-gray-900 transition-colors text-base font-medium px-4 py-2 rounded-lg hover:bg-gray-50">
+                {menuItems.map((item, index) => 
+                  <button 
+                    key={index} 
+                    onClick={item.action} 
+                    className="text-white hover:text-gray-300 transition-colors text-base font-medium px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
+                  >
                     {item.label}
-                  </button>)}
+                  </button>
+                )}
               </div>
             </nav>
 
             {/* Right Side Actions */}
             <div className="flex items-center space-x-4">
               {/* Back Button - Hidden on mobile */}
-              <Button variant="ghost" onClick={() => navigate('/')} className="hidden md:flex text-gray-700 hover:bg-gray-100 text-base">
+              <Button 
+                variant="ghost" 
+                onClick={() => navigate('/')} 
+                className="hidden md:flex text-white hover:bg-white hover:bg-opacity-10 text-base"
+              >
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 Voltar
               </Button>
 
               {/* Login Button */}
-              <Button onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')} className="text-white font-semibold px-6 py-3 text-base rounded-lg hover:opacity-90 transition-opacity" style={{
-              backgroundColor: '#60AB4B'
-            }}>
+              <Button 
+                onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')} 
+                className="text-white font-semibold px-6 py-3 text-base rounded-lg hover:opacity-90 transition-opacity" 
+                style={{
+                  backgroundColor: '#60AB4B'
+                }}
+              >
                 Fazer login →
               </Button>
 
               {/* Mobile Menu Button */}
-              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-gray-700 hover:bg-gray-100">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                className="lg:hidden text-white hover:bg-white hover:bg-opacity-10"
+              >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </Button>
             </div>
           </div>
 
           {/* Mobile Menu */}
-          {isMenuOpen && <div className="lg:hidden mt-4 bg-white rounded-lg border border-gray-200 shadow-xl animate-in slide-in-from-top-2 duration-200">
+          {isMenuOpen && 
+            <div className="lg:hidden mt-4 bg-gray-800 bg-opacity-90 rounded-lg border border-gray-600 shadow-xl animate-in slide-in-from-top-2 duration-200">
               <nav className="p-4 space-y-3">
-                {menuItems.map((item, index) => <button key={index} onClick={item.action} className="block w-full text-left text-gray-700 hover:text-gray-900 transition-colors py-3 px-4 rounded-lg hover:bg-gray-50 text-base">
+                {menuItems.map((item, index) => 
+                  <button 
+                    key={index} 
+                    onClick={item.action} 
+                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-3 px-4 rounded-lg hover:bg-white hover:bg-opacity-10 text-base"
+                  >
                     {item.label}
-                  </button>)}
-                <div className="pt-3 border-t border-gray-200">
-                  <Button variant="ghost" onClick={() => {
-                navigate('/');
-                setIsMenuOpen(false);
-              }} className="w-full text-gray-700 hover:bg-gray-50 justify-start py-3">
+                  </button>
+                )}
+                <div className="pt-3 border-t border-gray-600">
+                  <Button 
+                    variant="ghost" 
+                    onClick={() => {
+                      navigate('/');
+                      setIsMenuOpen(false);
+                    }} 
+                    className="w-full text-white hover:bg-white hover:bg-opacity-10 justify-start py-3"
+                  >
                     <ArrowLeft className="w-5 h-5 mr-2" />
                     Voltar
                   </Button>
                 </div>
               </nav>
-            </div>}
+            </div>
+          }
         </div>
       </header>
 
@@ -470,4 +518,5 @@ const B2BPage = () => {
       </footer>
     </div>;
 };
+
 export default B2BPage;
