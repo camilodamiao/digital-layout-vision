@@ -1,8 +1,8 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, MessageSquare, Clock, Award, Filter, Search } from "lucide-react";
+import { ArrowLeft, MessageSquare, Clock, Filter, Search, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const B2CPage = () => {
@@ -22,16 +22,18 @@ const B2CPage = () => {
       name: "Fundamentos de Fibra Óptica",
       category: "Fibra Óptica",
       duration: "40h",
-      modality: "Online + Prático",
+      price: "R$ 299,90",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=225&fit=crop",
       description: "Aprenda desde conceitos básicos até técnicas avançadas de instalação e manutenção de redes de fibra óptica.",
-      checkoutUrl: "https://ticto.com/curso1", // Substitua pela URL real
+      checkoutUrl: "https://ticto.com/curso1",
     },
     {
       id: 2,
       name: "Wi-Fi 6 e 6E - Implementação Avançada",
       category: "Wi-Fi",
       duration: "25h",
-      modality: "100% Online",
+      price: "R$ 199,90",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=225&fit=crop",
       description: "Domine as mais novas tecnologias Wi-Fi e implemente redes de alta performance com Wi-Fi 6 e 6E.",
       checkoutUrl: "https://ticto.com/curso2",
     },
@@ -40,7 +42,8 @@ const B2CPage = () => {
       name: "DWDM - Multiplexação Densa",
       category: "DWDM",
       duration: "35h",
-      modality: "Híbrido",
+      price: "R$ 399,90",
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=225&fit=crop",
       description: "Tecnologia DWDM para transmissão de dados em longas distâncias com máxima eficiência.",
       checkoutUrl: "https://ticto.com/curso3",
     },
@@ -49,7 +52,8 @@ const B2CPage = () => {
       name: "Certificação Viavi - Nivel 1",
       category: "Certificação",
       duration: "60h",
-      modality: "Online + Prático",
+      price: "R$ 599,90",
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=225&fit=crop",
       description: "Prepare-se para a certificação oficial Viavi e destaque-se no mercado de telecomunicações.",
       checkoutUrl: "https://ticto.com/curso4",
     },
@@ -58,7 +62,8 @@ const B2CPage = () => {
       name: "Redes Ópticas Passivas (PON)",
       category: "Redes",
       duration: "30h",
-      modality: "100% Online",
+      price: "R$ 249,90",
+      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=225&fit=crop",
       description: "Tecnologias PON, GPON, XGS-PON para implementação de redes de acesso de alta velocidade.",
       checkoutUrl: "https://ticto.com/curso5",
     },
@@ -67,7 +72,8 @@ const B2CPage = () => {
       name: "Soldas e Emendas em Fibra Óptica",
       category: "Fibra Óptica",
       duration: "20h",
-      modality: "Prático Presencial",
+      price: "R$ 179,90",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=225&fit=crop",
       description: "Técnicas práticas de soldas e emendas com equipamentos profissionais da indústria.",
       checkoutUrl: "https://ticto.com/curso6",
     },
@@ -91,7 +97,7 @@ const B2CPage = () => {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 25%, #0D1B2A 50%, #102A3F 75%, #0A1019 100%)' }}>
       {/* Header */}
-      <header className="relative z-10 py-6 px-6" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 50%, #0D1B2A 100%)' }}>
+      <header className="relative z-10 py-6 px-6" style={{ background: 'linear-gradient(135deg, #0A1019 0%, #0D1B2A 50%, #102A3F 100%)' }}>
         <div className="container mx-auto flex items-center justify-between">
           <Button 
             variant="ghost" 
@@ -125,13 +131,13 @@ const B2CPage = () => {
         {/* Hero Section */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Aprenda com os melhores e
+            Cursos Técnicos em
             <span className="block text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)' }}>
-              avance na sua carreira
+              Telecomunicações
             </span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            Escolha seu curso, estude com flexibilidade e seja certificado pelos maiores fabricantes do setor de telecomunicações.
+            Ensino personalizado que impulsiona resultados. Flexibilidade e qualidade de um método inovador.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -204,80 +210,64 @@ const B2CPage = () => {
           </div>
         </div>
 
-        {/* Catálogo de Cursos */}
+        {/* Catálogo de Cursos - Layout Netflix */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-8">
             Nossos Cursos ({filteredCourses.length})
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {filteredCourses.map((course) => (
-              <Card key={course.id} className="bg-gray-800 bg-opacity-50 border border-gray-700 backdrop-blur-sm hover:scale-105 transition-all duration-300">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <Badge 
-                      className="text-white border-0"
-                      style={{ backgroundColor: '#60AB4B' }}
-                    >
-                      {course.category}
-                    </Badge>
-                    <Badge variant="outline" className="text-gray-300 border-gray-600">
-                      {course.modality}
-                    </Badge>
+              <div key={course.id} className="group cursor-pointer">
+                {/* Course Image/Cover */}
+                <div className="relative mb-3 overflow-hidden rounded-lg aspect-video bg-gray-800">
+                  <img 
+                    src={course.image} 
+                    alt={course.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                    <Play className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <CardTitle className="text-white text-xl">{course.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center mb-4 text-gray-300">
-                    <Clock className="w-4 h-4 mr-2" />
-                    <span>{course.duration}</span>
+                  
+                  {/* Category Badge */}
+                  <Badge 
+                    className="absolute top-2 left-2 text-xs text-white border-0"
+                    style={{ backgroundColor: '#60AB4B' }}
+                  >
+                    {course.category}
+                  </Badge>
+                </div>
+
+                {/* Course Info */}
+                <div className="space-y-2">
+                  <h3 className="text-white font-semibold text-sm line-clamp-2 group-hover:text-blue-300 transition-colors">
+                    {course.name}
+                  </h3>
+                  
+                  <div className="flex items-center justify-between text-gray-300 text-sm">
+                    <div className="flex items-center">
+                      <Clock className="w-3 h-3 mr-1" />
+                      <span>{course.duration}</span>
+                    </div>
+                    <span className="font-bold text-green-400">{course.price}</span>
                   </div>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    {course.description}
-                  </p>
+
+                  {/* Buy Button */}
                   <Button 
                     onClick={() => handleBuyNow(course.checkoutUrl)}
-                    className="w-full text-white font-semibold hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                    className="w-full text-white font-semibold text-sm py-2 hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                     style={{
                       background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-                      boxShadow: '0 0 15px rgba(96,171,75,0.3)'
+                      boxShadow: '0 0 10px rgba(96,171,75,0.3)'
                     }}
-                    size="lg"
+                    size="sm"
                   >
-                    <span className="relative z-10">Comprar Agora</span>
+                    <span className="relative z-10">Comprar</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
-          </div>
-        </div>
-
-        {/* FAQ */}
-        <div className="mb-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
-            Dúvidas Frequentes
-          </h2>
-          <div className="space-y-6">
-            <Card className="bg-gray-800 bg-opacity-50 border border-gray-700">
-              <CardContent className="p-6">
-                <h3 className="text-white font-semibold mb-2">Como funcionam as certificações?</h3>
-                <p className="text-gray-300">Nossos cursos oferecem certificações reconhecidas pelos principais fabricantes do setor, como Viavi e Sumitomo. Após completar o curso e ser aprovado na avaliação, você recebe o certificado oficial.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-gray-800 bg-opacity-50 border border-gray-700">
-              <CardContent className="p-6">
-                <h3 className="text-white font-semibold mb-2">Posso estudar no meu ritmo?</h3>
-                <p className="text-gray-300">Sim! Nossos cursos online permitem que você estude quando e onde quiser. O conteúdo fica disponível 24/7 durante o período do curso.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-gray-800 bg-opacity-50 border border-gray-700">
-              <CardContent className="p-6">
-                <h3 className="text-white font-semibold mb-2">Há suporte durante o curso?</h3>
-                <p className="text-gray-300">Oferecemos suporte completo com instrutores especializados, fóruns de discussão e atendimento via WhatsApp para tirar todas as suas dúvidas.</p>
-              </CardContent>
-            </Card>
           </div>
         </div>
 
@@ -298,8 +288,7 @@ const B2CPage = () => {
               }}
               size="lg"
             >
-              <Award className="w-6 h-6 mr-3" />
-              <span className="relative z-10">Ver Certificações</span>
+              <span className="relative z-10">Ver Todos os Cursos</span>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </Button>
             <Button 
@@ -318,6 +307,15 @@ const B2CPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 text-center" style={{ backgroundColor: '#102A3F' }}>
+        <div className="container mx-auto">
+          <p className="text-gray-300">
+            © 2024 Educa Nextest. Todos os direitos reservados.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
