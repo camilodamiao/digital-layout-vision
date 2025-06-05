@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,17 +5,13 @@ import { Building2, User, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import BackgroundWrapper from "@/components/common/BackgroundWrapper";
 import Footer from "@/components/common/Footer";
-
 const Index = () => {
   const [hoveredCard, setHoveredCard] = useState<'b2b' | 'b2c' | null>(null);
   const navigate = useNavigate();
-
   const handleNavigate = (path: string) => {
     navigate(path);
   };
-
-  return (
-    <BackgroundWrapper>
+  return <BackgroundWrapper>
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
         {/* Logo */}
         <div className="mb-12 sm:mb-16 animate-fade-in">
@@ -29,9 +24,7 @@ const Index = () => {
             Você está buscando cursos
             <span className="block text-transparent bg-clip-text" style={{
             backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)'
-          }}>
-              para você ou para sua empresa?
-            </span>
+          }}>para você ou para sua empresa</span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
             Escolha a jornada ideal para acelerar sua transformação digital
@@ -163,8 +156,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </BackgroundWrapper>
-  );
+    </BackgroundWrapper>;
 };
-
 export default Index;
