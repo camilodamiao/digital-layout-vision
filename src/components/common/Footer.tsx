@@ -46,11 +46,11 @@ const Footer = ({ onWhatsAppClick }: FooterProps) => {
           <div>
             <h3 className="text-white font-semibold text-lg sm:text-xl mb-4 sm:mb-6">Cursos Populares</h3>
             <ul className="space-y-3 sm:space-y-4">
-              <li><a href="https://payment.ticto.app/O81D1A33D" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">Redes 5G</a></li>
-              <li><a href="https://payment.ticto.app/O53E36D78" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">SmartOTDR e OTDR Avançado</a></li>
-              <li><a href="https://payment.ticto.app/O948DDE0E" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">Comunidade DWDM</a></li>
-              <li><a href="https://payment.ticto.app/OB65BD055" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">Domine o WiFi Pro</a></li>
-              <li><a href="https://payment.ticto.app/OA79C4682" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">Roteadores Mikrotik</a></li>
+              <li><a href="https://payment.ticto.app/O81D1A33D" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">Redes 5G</a></li>
+              <li><a href="https://payment.ticto.app/O53E36D78" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">SmartOTDR e OTDR Avançado</a></li>
+              <li><a href="https://payment.ticto.app/O948DDE0E" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">Comunidade DWDM</a></li>
+              <li><a href="https://payment.ticto.app/OB65BD055" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">Domine o WiFi Pro</a></li>
+              <li><a href="https://payment.ticto.app/OA79C4682" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">Roteadores Mikrotik</a></li>
             </ul>
           </div>
 
