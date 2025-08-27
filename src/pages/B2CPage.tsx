@@ -280,7 +280,7 @@ const B2CPage = () => {
   return (
     <BackgroundWrapper>
       {/* Header */}
-      <MobileHeader showBackButton={true} onWhatsAppClick={handleWhatsAppClick} />
+      <MobileHeader showBackButton={true} />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6">
         {/* Hero Section com Video */}
@@ -313,19 +313,6 @@ const B2CPage = () => {
                 >
                   <span className="relative z-10">Explorar Cursos</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                </Button>
-                <Button 
-                  onClick={handleWhatsAppClick}
-                  className="text-white font-semibold px-8 sm:px-10 py-4 sm:py-6 text-lg sm:text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-                  style={{
-                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                    boxShadow: '0 0 20px rgba(37,211,102,0.4)'
-                  }}
-                  size="lg"
-                >
-                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
-                  <span className="relative z-10">Falar com Especialista</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
               </div>
 
@@ -438,19 +425,6 @@ const B2CPage = () => {
                 >
                   <span className="relative z-10">Começar Agora</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                </Button>
-                <Button 
-                  onClick={handleWhatsAppClick}
-                  className="text-white font-semibold px-10 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-                  style={{
-                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                    boxShadow: '0 0 20px rgba(37,211,102,0.4)'
-                  }}
-                  size="lg"
-                >
-                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
-                  <span className="relative z-10">Falar com Especialista</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
               </div>
             </div>
@@ -658,43 +632,14 @@ const B2CPage = () => {
 
             <div className="text-center mt-8 sm:mt-12">
               <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">Ainda tem dúvidas? Entre em contato conosco!</p>
-              <Button 
-                onClick={handleWhatsAppClick}
-                className="text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-                style={{
-                  background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                  boxShadow: '0 0 20px rgba(37,211,102,0.4)'
-                }}
-                size="lg"
-              >
-                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                <span className="relative z-10">Falar no WhatsApp</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-              </Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      {/* Ícone Flutuante WhatsApp */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
-        <Button
-          onClick={handleWhatsAppClick}
-          className="text-white font-semibold px-4 py-3 sm:px-6 sm:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm sm:text-base relative overflow-hidden group"
-          style={{
-            background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-            boxShadow: '0 0 20px rgba(37,211,102,0.4)'
-          }}
-          size="lg"
-        >
-          <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-          <span className="relative z-10">Dúvidas</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-        </Button>
-      </div>
 
-      <Footer onWhatsAppClick={handleWhatsAppClick} />
+      <Footer />
     </BackgroundWrapper>
   );
 };
