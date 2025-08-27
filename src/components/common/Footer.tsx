@@ -87,8 +87,18 @@ const Footer = ({ onWhatsAppClick }: FooterProps) => {
               © 2024 Educa Nextest. Todos os direitos reservados.
             </p>
             <div className="flex space-x-4 sm:space-x-6">
-              <button className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Política de Privacidade</button>
-              <button className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Termos de Uso</button>
+              <button 
+                onClick={() => navigate('/politica-privacidade')} 
+                className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer"
+              >
+                Política de Privacidade
+              </button>
+              <button 
+                onClick={() => navigate('/termos-de-uso')} 
+                className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer"
+              >
+                Termos de Uso
+              </button>
             </div>
           </div>
         </div>
