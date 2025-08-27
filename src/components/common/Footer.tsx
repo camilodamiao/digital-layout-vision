@@ -62,7 +62,7 @@ const Footer = ({ onWhatsAppClick }: FooterProps) => {
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" style={{
                   color: '#60AB4B'
                 }} />
-                <span>+55 35 9824-3322</span>
+                <span>+55 35 9 9824-3322</span>
               </div>
               <div className="flex items-center text-gray-300 text-sm sm:text-base hover:text-white transition-colors duration-300">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" style={{
