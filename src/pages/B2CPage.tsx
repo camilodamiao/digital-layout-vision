@@ -21,7 +21,8 @@ import {
   TrendingUp,
   Plus,
   Minus,
-  ChevronDown
+  ChevronDown,
+  ArrowLeft
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import BackgroundWrapper from "@/components/common/BackgroundWrapper";
@@ -279,26 +280,47 @@ const B2CPage = () => {
 
   return (
     <BackgroundWrapper>
-      {/* Botão Já sou Aluno */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20">
-        <Button 
-          onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')}
-          className="text-white font-semibold px-4 py-2 text-sm hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-          style={{
-            background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
-            boxShadow: '0 0 15px rgba(96,171,75,0.3)'
-          }}
-          size="sm"
-        >
-          <span className="relative z-10">Já sou Aluno</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-        </Button>
-      </div>
-
       {/* Header */}
-      <MobileHeader showBackButton={true} />
+      <header className="relative z-50 shadow-lg border-b border-cyan-400/20" style={{
+        background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 50%, #0D1B2A 100%)'
+      }}>
+        <div className="container mx-auto px-4 md:px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center">
+              <img src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" alt="Educa Nextest" className="h-10 md:h-12" />
+            </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6">
+            {/* Right Side Actions */}
+            <div className="flex items-center space-x-4">
+              {/* Back Button - Hidden on mobile */}
+              <Button 
+                variant="ghost" 
+                onClick={() => navigate('/')} 
+                className="hidden md:flex text-white hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-green-500/10 hover:shadow-lg hover:shadow-cyan-500/20 text-base transition-all duration-300"
+              >
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                Voltar
+              </Button>
+
+              {/* Login Button */}
+              <Button 
+                onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')} 
+                className="text-white font-semibold px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group" 
+                style={{
+                  background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                  boxShadow: '0 0 20px rgba(37,211,102,0.3)'
+                }}
+              >
+                <span className="relative z-10">Já sou Aluno →</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-8">{/* ajustado padding-top para compensar header fixo */}
         {/* Hero Section com Video */}
         <div className="py-16 sm:py-20 mb-16 sm:mb-20 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
