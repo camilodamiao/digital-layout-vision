@@ -54,9 +54,6 @@ const B2BPage = () => {
   }, {
     label: "Recursos",
     action: () => scrollToSection("resources")
-  }, {
-    label: "Depoimentos",
-    action: () => scrollToSection("testimonials")
   }];
   const teamMembers = [{
     name: "Camilo Damião",
