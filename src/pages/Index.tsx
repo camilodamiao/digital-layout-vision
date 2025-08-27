@@ -17,12 +17,7 @@ const Index = () => {
         background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 50%, #0D1B2A 100%)'
       }}>
         <div className="container mx-auto px-4 md:px-6 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center">
-              <img src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" alt="Educa Nextest" className="h-10 md:h-12" />
-            </div>
-
+          <div className="flex items-center justify-end">
             {/* Login Button */}
             <Button 
               onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')} 
