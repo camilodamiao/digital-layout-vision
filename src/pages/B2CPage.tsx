@@ -36,7 +36,7 @@ const B2CPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
-  const whatsappNumber = "5535982433322";
+  const whatsappNumber = "5535998243322";
   const whatsappMessage = "Olá! Tenho dúvidas sobre os cursos da Educa Nextest.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 

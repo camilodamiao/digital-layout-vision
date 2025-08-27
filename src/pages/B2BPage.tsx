@@ -24,7 +24,7 @@ const B2BPage = () => {
     handleScroll(); // Check on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  const whatsappNumber = "5535982433222";
+  const whatsappNumber = "5535998243322";
   const whatsappMessage = "Olá! Gostaria de saber mais sobre os treinamentos corporativos da Educa Nextest.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
   const handleWhatsAppClick = () => {
