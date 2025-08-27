@@ -350,7 +350,7 @@ const B2CPage = () => {
             <div className="relative order-1 lg:order-2">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl" style={{ boxShadow: '0 0 50px rgba(79, 195, 247, 0.3)' }}>
                 <img
-                  src="/lovable-uploads/0f21b63c-d42e-4796-a5bd-3003c52e2f07.png"
+                  src="/lovable-uploads/380f2a26-ed94-458c-9c30-7c3de6957be7.png"
                   alt="Educa Nextest - Ensino Personalizado que Impulsiona Resultados"
                   className="w-full h-full object-cover"
                 />
