@@ -577,13 +577,13 @@ const B2BPage = () => {
                 Revolucionando o setor de telecomunicações com treinamentos técnicos inovadores para profissionais e empresas.
               </p>
               <div className="flex space-x-3 md:space-x-4">
-                <a href="#" className="text-gray-400 hover:text-cyan-300 transition-colors duration-300 hover:scale-110">
+                <a href="https://www.linkedin.com/company/nextest/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-300 transition-colors duration-300 hover:scale-110">
                   <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-cyan-300 transition-colors duration-300 hover:scale-110">
+                <a href="https://www.instagram.com/educanextest/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-300 transition-colors duration-300 hover:scale-110">
                   <Instagram className="w-5 h-5 md:w-6 md:h-6" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-cyan-300 transition-colors duration-300 hover:scale-110">
+                <a href="https://www.youtube.com/@educanextest" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-300 transition-colors duration-300 hover:scale-110">
                   <Youtube className="w-5 h-5 md:w-6 md:h-6" />
                 </a>
               </div>
@@ -595,7 +595,7 @@ const B2BPage = () => {
               <div className="space-y-2 md:space-y-3">
                 <div className="flex items-center text-gray-300 text-sm md:text-base hover:text-white transition-colors duration-300">
                   <Phone className="w-3 h-3 md:w-4 md:h-4 mr-2 md:mr-3" style={{ color: '#60AB4B' }} />
-                  <span>(11) 99999-9999</span>
+                  <span>+55 35 9824-3322</span>
                 </div>
                 <div className="flex items-center text-gray-300 text-sm md:text-base hover:text-white transition-colors duration-300">
                   <Mail className="w-3 h-3 md:w-4 md:h-4 mr-2 md:mr-3" style={{ color: '#60AB4B' }} />
