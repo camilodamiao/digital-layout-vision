@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,17 +5,35 @@ import { Building2, User, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import BackgroundWrapper from "@/components/common/BackgroundWrapper";
 import Footer from "@/components/common/Footer";
-
 const Index = () => {
   const [hoveredCard, setHoveredCard] = useState<'b2b' | 'b2c' | null>(null);
   const navigate = useNavigate();
-
   const handleNavigate = (path: string) => {
     navigate(path);
   };
-
-  return (
-    <BackgroundWrapper>
+  return <BackgroundWrapper>
+      {/* Header */}
+      <header className="relative z-50 shadow-lg border-b border-cyan-400/20" style={{
+        background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 50%, #0D1B2A 100%)'
+      }}>
+        <div className="container mx-auto px-4 md:px-6 py-4">
+          <div className="flex items-center justify-end">
+            {/* Login Button */}
+            <Button 
+              onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')} 
+              className="text-white font-semibold px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group" 
+              style={{
+                background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                boxShadow: '0 0 20px rgba(37,211,102,0.3)'
+              }}
+            >
+              <span className="relative z-10">Já sou Aluno →</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            </Button>
+          </div>
+        </div>
+      </header>
+      
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-20">
         {/* Logo */}
         <div className="mb-12 sm:mb-16 animate-fade-in">
@@ -29,9 +46,7 @@ const Index = () => {
             Você está buscando cursos
             <span className="block text-transparent bg-clip-text" style={{
             backgroundImage: 'linear-gradient(to right, #4FC3F7, #60AB4B)'
-          }}>
-              para você ou para sua empresa?
-            </span>
+          }}>para você ou para sua empresa</span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
             Escolha a jornada ideal para acelerar sua transformação digital
@@ -163,8 +178,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </BackgroundWrapper>
-  );
+    </BackgroundWrapper>;
 };
-
 export default Index;

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, Phone, Mail, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface FooterProps {
@@ -42,28 +42,41 @@ const Footer = ({ onWhatsAppClick }: FooterProps) => {
             )}
           </div>
 
-          {/* Links Rápidos */}
-          <div>
-            <h3 className="text-white font-semibold text-lg sm:text-xl mb-4 sm:mb-6">Links Rápidos</h3>
-            <ul className="space-y-3 sm:space-y-4">
-              <li><button onClick={() => navigate('/')} className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Início</button></li>
-              <li><button onClick={() => navigate('/empresas')} className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Para Empresas</button></li>
-              <li><button className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Sobre Nós</button></li>
-              <li><button className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Blog</button></li>
-              <li><button className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Contato</button></li>
-            </ul>
-          </div>
-
           {/* Cursos Populares */}
           <div>
             <h3 className="text-white font-semibold text-lg sm:text-xl mb-4 sm:mb-6">Cursos Populares</h3>
             <ul className="space-y-3 sm:space-y-4">
-              <li><button className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">Redes 5G</button></li>
-              <li><button className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">OTDR Avançado</button></li>
-              <li><button className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">Redes DWDM</button></li>
-              <li><button className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">WiFi Pro</button></li>
-              <li><button className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base">Mikrotik</button></li>
+              <li><a href="https://payment.ticto.app/O81D1A33D" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">Redes 5G</a></li>
+              <li><a href="https://payment.ticto.app/O53E36D78" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">SmartOTDR e OTDR Avançado</a></li>
+              <li><a href="https://payment.ticto.app/O948DDE0E" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">Comunidade DWDM</a></li>
+              <li><a href="https://payment.ticto.app/OB65BD055" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">Domine o WiFi Pro</a></li>
+              <li><a href="https://payment.ticto.app/OA79C4682" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-left text-sm sm:text-base cursor-pointer relative z-10 block">Roteadores Mikrotik</a></li>
             </ul>
+          </div>
+
+          {/* Contato */}
+          <div>
+            <h3 className="text-white font-semibold text-lg sm:text-xl mb-4 sm:mb-6">Contato</h3>
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-center text-gray-300 text-sm sm:text-base hover:text-white transition-colors duration-300">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" style={{
+                  color: '#60AB4B'
+                }} />
+                <span>+55 35 9 9824-3322</span>
+              </div>
+              <div className="flex items-center text-gray-300 text-sm sm:text-base hover:text-white transition-colors duration-300">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" style={{
+                  color: '#60AB4B'
+                }} />
+                <span>contato@educanextest.com.br</span>
+              </div>
+              <div className="flex items-start text-gray-300 text-sm sm:text-base hover:text-white transition-colors duration-300">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 mt-1" style={{
+                  color: '#60AB4B'
+                }} />
+                <span>São Paulo, SP<br />Brasil</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -74,8 +87,18 @@ const Footer = ({ onWhatsAppClick }: FooterProps) => {
               © 2024 Educa Nextest. Todos os direitos reservados.
             </p>
             <div className="flex space-x-4 sm:space-x-6">
-              <button className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Política de Privacidade</button>
-              <button className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">Termos de Uso</button>
+              <button 
+                onClick={() => navigate('/politica-privacidade')} 
+                className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer relative z-10"
+              >
+                Política de Privacidade
+              </button>
+              <button 
+                onClick={() => navigate('/termos-de-uso')} 
+                className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer relative z-10"
+              >
+                Termos de Uso
+              </button>
             </div>
           </div>
         </div>

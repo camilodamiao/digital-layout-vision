@@ -21,7 +21,8 @@ import {
   TrendingUp,
   Plus,
   Minus,
-  ChevronDown
+  ChevronDown,
+  ArrowLeft
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import BackgroundWrapper from "@/components/common/BackgroundWrapper";
@@ -35,7 +36,7 @@ const B2CPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
-  const whatsappNumber = "5511999999999";
+  const whatsappNumber = "5535998243322";
   const whatsappMessage = "Olá! Tenho dúvidas sobre os cursos da Educa Nextest.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -280,9 +281,46 @@ const B2CPage = () => {
   return (
     <BackgroundWrapper>
       {/* Header */}
-      <MobileHeader showBackButton={true} onWhatsAppClick={handleWhatsAppClick} />
+      <header className="relative z-50 shadow-lg border-b border-cyan-400/20" style={{
+        background: 'linear-gradient(135deg, #0A1019 0%, #102A3F 50%, #0D1B2A 100%)'
+      }}>
+        <div className="container mx-auto px-4 md:px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center">
+              <img src="/lovable-uploads/bb450ec0-408d-48fd-8658-aaa1bbbfec7d.png" alt="Educa Nextest" className="h-10 md:h-12" />
+            </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6">
+            {/* Right Side Actions */}
+            <div className="flex items-center space-x-4">
+              {/* Back Button - Hidden on mobile */}
+              <Button 
+                variant="ghost" 
+                onClick={() => navigate('/')} 
+                className="hidden md:flex text-white hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-green-500/10 hover:shadow-lg hover:shadow-cyan-500/20 text-base transition-all duration-300"
+              >
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                Voltar
+              </Button>
+
+              {/* Login Button */}
+              <Button 
+                onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')} 
+                className="text-white font-semibold px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group" 
+                style={{
+                  background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                  boxShadow: '0 0 20px rgba(37,211,102,0.3)'
+                }}
+              >
+                <span className="relative z-10">Já sou Aluno →</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-8">{/* ajustado padding-top para compensar header fixo */}
         {/* Hero Section com Video */}
         <div className="py-16 sm:py-20 mb-16 sm:mb-20 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -319,12 +357,11 @@ const B2CPage = () => {
                   className="text-white font-semibold px-8 sm:px-10 py-4 sm:py-6 text-lg sm:text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                    boxShadow: '0 0 20px rgba(37,211,102,0.4)'
                   }}
                   size="lg"
                 >
-                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
-                  <span className="relative z-10">Falar com Especialista</span>
+                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+                  <span className="relative z-10">Falar no WhatsApp</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
               </div>
@@ -346,18 +383,14 @@ const B2CPage = () => {
               </div>
             </div>
 
-            {/* Video Content */}
+            {/* Hero Image */}
             <div className="relative order-1 lg:order-2">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl" style={{ boxShadow: '0 0 50px rgba(79, 195, 247, 0.3)' }}>
-                <iframe
-                  src="https://player.vimeo.com/video/956581145?h=0&title=0&byline=0&portrait=0&autoplay=1&muted=1&loop=1"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
+                <img
+                  src="/lovable-uploads/380f2a26-ed94-458c-9c30-7c3de6957be7.png"
+                  alt="Educa Nextest - Ensino Personalizado que Impulsiona Resultados"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -442,19 +475,6 @@ const B2CPage = () => {
                 >
                   <span className="relative z-10">Começar Agora</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                </Button>
-                <Button 
-                  onClick={handleWhatsAppClick}
-                  className="text-white font-semibold px-10 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-                  style={{
-                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                    boxShadow: '0 0 20px rgba(37,211,102,0.4)'
-                  }}
-                  size="lg"
-                >
-                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
-                  <span className="relative z-10">Falar com Especialista</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
               </div>
             </div>
@@ -667,7 +687,6 @@ const B2CPage = () => {
                 className="text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                 style={{
                   background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                  boxShadow: '0 0 20px rgba(37,211,102,0.4)'
                 }}
                 size="lg"
               >
@@ -681,7 +700,23 @@ const B2CPage = () => {
       </div>
 
       {/* Footer */}
-      <Footer onWhatsAppClick={handleWhatsAppClick} />
+      {/* Ícone Flutuante WhatsApp */}
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+        <Button
+          onClick={handleWhatsAppClick}
+          className="text-white font-semibold px-4 py-3 sm:px-6 sm:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm sm:text-base relative overflow-hidden group"
+          style={{
+            background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+          }}
+          size="lg"
+        >
+          <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+          <span className="relative z-10">WhatsApp</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+        </Button>
+      </div>
+
+      <Footer />
     </BackgroundWrapper>
   );
 };
