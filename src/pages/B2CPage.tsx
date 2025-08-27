@@ -35,7 +35,7 @@ const B2CPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
-  const whatsappNumber = "5511999999999";
+  const whatsappNumber = "5535982433322";
   const whatsappMessage = "Olá! Tenho dúvidas sobre os cursos da Educa Nextest.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -677,6 +677,23 @@ const B2CPage = () => {
       </div>
 
       {/* Footer */}
+      {/* Ícone Flutuante WhatsApp */}
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+        <Button
+          onClick={handleWhatsAppClick}
+          className="text-white font-semibold px-4 py-3 sm:px-6 sm:py-4 shadow-2xl animate-pulse hover:scale-105 transition-all duration-300 text-sm sm:text-base relative overflow-hidden group"
+          style={{
+            background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+            boxShadow: '0 0 20px rgba(37,211,102,0.4)'
+          }}
+          size="lg"
+        >
+          <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+          <span className="relative z-10">Dúvidas</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+        </Button>
+      </div>
+
       <Footer onWhatsAppClick={handleWhatsAppClick} />
     </BackgroundWrapper>
   );
