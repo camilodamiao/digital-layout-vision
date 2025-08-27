@@ -309,9 +309,16 @@ const B2BPage = () => {
             {/* Vídeo Panda */}
             <div className="relative mt-8 lg:mt-0">
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border border-cyan-400/20 glow-effect">
-                <iframe id="panda-568ea574-7622-4141-8214-641bdda33d2c" src="https://player-vz-c70cc8ed-b15.tv.pandavideo.com.br/embed/?v=568ea574-7622-4141-8214-641bdda33d2c" style={{
-                border: 'none'
-              }} allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowFullScreen={true} width="100%" height="100%" className="w-full h-full" />
+                <iframe 
+                  id="panda-568ea574-7622-4141-8214-641bdda33d2c" 
+                  src="https://player-vz-c70cc8ed-b15.tv.pandavideo.com.br/embed/?v=568ea574-7622-4141-8214-641bdda33d2c" 
+                  style={{border:'none'}} 
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" 
+                  allowFullScreen={true} 
+                  width="720" 
+                  height="360" 
+                  className="w-full h-full" 
+                />
               </div>
             </div>
           </div>
