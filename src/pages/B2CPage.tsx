@@ -346,18 +346,14 @@ const B2CPage = () => {
               </div>
             </div>
 
-            {/* Video Content */}
+            {/* Hero Image */}
             <div className="relative order-1 lg:order-2">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl" style={{ boxShadow: '0 0 50px rgba(79, 195, 247, 0.3)' }}>
-                <iframe
-                  src="https://player.vimeo.com/video/956581145?h=0&title=0&byline=0&portrait=0&autoplay=1&muted=1&loop=1"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
+                <img
+                  src="/lovable-uploads/0f21b63c-d42e-4796-a5bd-3003c52e2f07.png"
+                  alt="Educa Nextest - Ensino Personalizado que Impulsiona Resultados"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
