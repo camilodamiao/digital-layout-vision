@@ -315,16 +315,17 @@ const B2BPage = () => {
               </Button>
             </div>
             
-            {/* Vídeo Vimeo */}
+            {/* Vídeo Panda */}
             <div className="relative mt-8 lg:mt-0">
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border border-cyan-400/20 glow-effect">
                 <iframe
-                  src="https://player.vimeo.com/video/1022315308?badge=0&autopause=0&quality_selector=1&player_id=0&app_id=58479"
+                  id="panda-568ea574-7622-4141-8214-641bdda33d2c"
+                  src="https://player-vz-c70cc8ed-b15.tv.pandavideo.com.br/embed/?v=568ea574-7622-4141-8214-641bdda33d2c"
+                  style={{ border: 'none' }}
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+                  allowFullScreen={true}
                   width="100%"
                   height="100%"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                  title="Educa Nextest - Apresentação"
                   className="w-full h-full"
                 />
               </div>
