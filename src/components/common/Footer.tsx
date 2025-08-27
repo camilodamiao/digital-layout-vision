@@ -89,13 +89,13 @@ const Footer = ({ onWhatsAppClick }: FooterProps) => {
             <div className="flex space-x-4 sm:space-x-6">
               <button 
                 onClick={() => navigate('/politica-privacidade')} 
-                className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer"
+                className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer relative z-10"
               >
                 Política de Privacidade
               </button>
               <button 
                 onClick={() => navigate('/termos-de-uso')} 
-                className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer"
+                className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer relative z-10"
               >
                 Termos de Uso
               </button>
