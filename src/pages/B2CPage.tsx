@@ -323,7 +323,7 @@ const B2CPage = () => {
                   size="lg"
                 >
                   <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
-                  <span className="relative z-10">Começar Agora</span>
+                  <span className="relative z-10">Falar no WhatsApp</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                 </Button>
               </div>
