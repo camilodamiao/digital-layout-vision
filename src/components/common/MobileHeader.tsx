@@ -19,7 +19,7 @@ const MobileHeader = ({ showBackButton = false, onWhatsAppClick }: MobileHeaderP
           <Button 
             variant="ghost" 
             onClick={() => navigate('/')}
-            className="text-white hover:bg-white hover:bg-opacity-10 p-2 sm:px-4 sm:py-2"
+            className="text-white hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-green-500/10 hover:shadow-lg hover:shadow-cyan-500/20 text-base transition-all duration-300 p-2 sm:px-4 sm:py-2"
           >
             <ArrowLeft className="w-4 h-4 sm:mr-2" />
             <span className="hidden sm:inline">Voltar</span>
