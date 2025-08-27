@@ -279,6 +279,22 @@ const B2CPage = () => {
 
   return (
     <BackgroundWrapper>
+      {/* Botão Já sou Aluno */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20">
+        <Button 
+          onClick={() => window.open('https://cursos.educanextest.com.br/', '_blank')}
+          className="text-white font-semibold px-4 py-2 text-sm hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+          style={{
+            background: 'linear-gradient(135deg, #60AB4B 0%, #4FC3F7 100%)',
+            boxShadow: '0 0 15px rgba(96,171,75,0.3)'
+          }}
+          size="sm"
+        >
+          <span className="relative z-10">Já sou Aluno</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+        </Button>
+      </div>
+
       {/* Header */}
       <MobileHeader showBackButton={true} />
 

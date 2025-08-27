@@ -551,10 +551,26 @@ const B2BPage = () => {
             </div>
           </div>
 
-          <div className="border-t border-cyan-400/20 mt-6 md:mt-8 pt-6 md:pt-8 text-center">
-            <p className="text-gray-400 text-sm md:text-base">
-              © 2024 Educa Nextest. Todos os direitos reservados.
-            </p>
+          <div className="border-t border-cyan-400/20 mt-6 md:mt-8 pt-6 md:pt-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+              <p className="text-gray-400 text-sm md:text-base text-center sm:text-left">
+                © 2024 Educa Nextest. Todos os direitos reservados.
+              </p>
+              <div className="flex space-x-4 sm:space-x-6">
+                <button 
+                  onClick={() => window.open('/politica-privacidade', '_blank')} 
+                  className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer relative z-10"
+                >
+                  Política de Privacidade
+                </button>
+                <button 
+                  onClick={() => window.open('/termos-de-uso', '_blank')} 
+                  className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base cursor-pointer relative z-10"
+                >
+                  Termos de Uso
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
